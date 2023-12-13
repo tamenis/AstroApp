@@ -1,21 +1,70 @@
 ---
-import Layout from "../layouts/Layout.astro";
-
+import Layout from '../layouts/Layout.astro'
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<Layout title="index">
-			<div slot="content" class="[grid-area:slot]">
-				<h1>Hola</h1>
-			</div>
-		</Layout>
-	</body>
-</html>
+<Layout title='index'>
+  <article slot='content'>
+    <div class='grid grid-cols-3 gap-2 mb-4 h-32'>
+      <div
+        class='flex items-center justify-center h-full rounded bg-red-600 dark:bg-red-600 duration-300 hover:scale-90'
+      >
+        <p class='text-2xl'>Contenido</p>
+      </div>
+      <div
+        class='flex items-center justify-center h-full rounded bg-black dark:bg-white duration-300 hover:scale-90'
+      >
+        <p class='text-2xl'>Contenido</p>
+      </div>
+      <div
+        class='flex items-center justify-center h-full rounded bg-yellow-300 dark:bg-yellow-300 duration-300 hover:scale-90'
+      >
+        <p class='text-2xl'>Contenido</p>
+      </div>
+    </div>
+    <div
+        class='flex items-center justify-center h-56 mb-4 rounded bg-blue-700 dark:bg-blue-700 duration-300 hover:scale-90'
+      >
+        <p class='text-2xl'></p>
+      </div>
+      <div class='grid grid-cols-2 gap-4 mb-4'>
+        <div
+          class='flex items-center justify-center rounded bg-black h-32 dark:bg-white duration-300 hover:scale-90'
+        >
+          <p class='text-2xl'></p>
+        </div>
+        <div
+          class='flex items-center justify-center rounded bg-red-600 h-32 dark:bg-red-600 duration-300 hover:scale-90'
+        >
+          <p class='text-2xl'></p>
+        </div>
+        <div
+          class='flex items-center justify-center rounded bg-yellow-300 h-32 dark:bg-yellow-300 duration-300 hover:scale-90'
+        >
+          <p class='text-2xl'></p>
+        </div>
+        <div
+          class='flex items-center justify-center rounded hover:scale-90 bg-black h-32 duration-300 dark:bg-white'
+        >
+          <p class='text-2xl'></p>
+        </div>
+      </div>
+  </article>
+</Layout>
+<style is:global>
+  article{
+    display: flex;
+    padding: 6px;
+    background-color: white;
+    @apply dark:bg-black;
+    @apply w-auto;
+    padding: 2px;
+    border: 2px;
+    border-color: transparent;
+    @apply rounded-lg;
+    margin-top: 16px;
+    margin-right: 32px;
+    @apply max-h-screen;
+    @apply flex-grow;
+    @apply flex-col;
+  }
+</style>

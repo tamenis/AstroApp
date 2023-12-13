@@ -1,40 +1,47 @@
 ---
-import Header from "../components/Header.astro"
-import Sidebar from "../components/Sidebar.astro";
+import Header from '../components/Header.astro'
+import Sidebar from '../components/Sidebar.astro'
 
 interface Props {
-    title: string
+  title: string
 }
-const {title} = Astro.props
+const { title } = Astro.props
 ---
-<!doctype html> 
-<html lang="es">
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="description" content=""/>
-        <meta name="viewport" content="width-device-width"/>
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-        <title>{title}</title>
-    </head>
-    <body class="h-screen w-screen">
-        <Header/>
-        <Sidebar/>
-        <slot name="content"/>
-    </body>
-    <style is:global>
-        html{
-            font-family: monospace, system-ui;
-            background: white;
-            @apply dark:bg-black;
-        }
-        body {
-            display: grid;
-            grid-template-areas: 
-            'Header Header'
-            'Sidebar Slot'
-            ;
-            grid-template-columns: 0.5fr 2fr;
-            grid-template-rows:0.5fr 2fr;
-        }
-    </style>
+
+<!doctype html>
+<html lang='es'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='description' content='' />
+    <meta name='viewport' content='width-device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <title>{title}</title>
+  </head>
+  <body class='h-screen w-screen'>
+    <div class='[grid-area:Header] row-span-2'>
+      <Header />
+    </div>
+    <div class='[grid-area:Sidebar]'>
+      <Sidebar />
+    </div>
+    <div class="[grid-area:Slot]">
+      <slot name='content' />
+    </div>
+  </body>
+  <style is:global>
+    html {
+      font-family: monospace, system-ui;
+      background: white;
+      @apply dark:bg-black;
+    }
+    body {
+      display: grid;
+      grid-template-areas:
+        'Header Header'
+        'Sidebar Slot'
+        'Sidebar Slot';
+      grid-template-columns: 0.4fr 2fr;
+      grid-template-rows: 0.25fr 2fr;
+    }
+  </style>
 </html>
