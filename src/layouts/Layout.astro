@@ -13,7 +13,7 @@ const { title } = Astro.props
   <head>
     <meta charset='UTF-8' />
     <meta name='description' content='' />
-    <meta name='viewport' content='width-device-width' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <title>{title}</title>
   </head>
@@ -40,8 +40,16 @@ const { title } = Astro.props
         'Header Header'
         'Sidebar Slot'
         'Sidebar Slot';
-      grid-template-columns: 0.4fr 2fr;
-      grid-template-rows: 0.25fr 2fr;
+      grid-template-columns: 1fr; /* Cambié a una sola columna para móviles */
+      grid-template-rows: auto; /* Ajustado a alturas automáticas */
+    }
+
+    /* Añadí una regla de medios para tamaños de pantalla más pequeños */
+    @media screen and (min-width: 800px) {
+      body {
+        grid-template-columns: 0.4fr 2fr;
+        grid-template-rows: 0.25fr 2fr;
+      }
     }
   </style>
 </html>
