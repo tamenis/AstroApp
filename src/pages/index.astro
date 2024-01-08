@@ -3,32 +3,44 @@ import Layout from '../layouts/Layout.astro'
 ---
 
 <Layout title='index'>
-  <article slot='content' class='mx-16 mt-32 sm:mt-16 my-8 max-w-auto dark:bg-black'>
+  <article slot='content' class='mx-16 mt-32 sm:mt-16 my-8 max-w-auto bg-[#e0dddd] dark:bg-[#040804]'>
     <div class='grid grid-cols-3 mb-4 gap-2 h-32'>
-      <div class='flex items-center justify-center h-full rounded bg-red-600 dark:bg-red-600 duration-300 hover:scale-90'>
-        <a href="/Contenido1" class='text-2xl'>Contenido1</a>
-      </div>
-      <div class='flex items-center justify-center h-full rounded bg-black dark:bg-white duration-300 hover:scale-90'>
-        <a href="/Contenido2" class='text-2xl text-white dark:text-black'>Contenido2</a>
-      </div>
-      <div class='flex items-center justify-center h-full rounded bg-yellow-300 dark:bg-yellow-300 duration-300 hover:scale-90'>
-        <a href="/Contenido3" class='text-2xl'>Contenido3</a>
-      </div>
+      <a href="/Contenido1" class='flex items-center justify-center h-full rounded bg-[#a6311d] dark:bg-[#a6311d] duration-700 group relative hover:scale-90'>
+          <p class='transition-transform transform group-hover:-translate-y-full relative lg:text-2xl text-sm'>Contenido1</p>
+          <p class='absolute text-black transition-transform transform translate-y-full group-hover:translate-y-0 opacity-0 group-hover:opacity-100 text-xs lg:text-base whitespace-pre-wrap'>
+            Texto en el fondo
+          </p>
+      </a>
+    <a href="/Contenido2" class='flex items-center justify-center h-full rounded bg-[#030601] dark:bg-[#e0dddd] duration-700 group relative hover:scale-90'>
+        <p class='transition-transform transform group-hover:-translate-y-full relative text-2xl text-white dark:text-black'>Contenido2</p>
+        <p class='absolute text-white dark:text-black transition-transform transform translate-y-full group-hover:translate-y-0 opacity-0 group-hover:opacity-100'>
+          Texto en el fondo
+        </p>
+    </a>
+    <a href="/Contenido3" class='flex items-center justify-center h-full rounded bg-[#ecbd4f] duration-700 group relative hover:scale-90'>
+      <p class='transition-transform transform group-hover:-translate-y-full relative text-2xl'>Contenido3</p>
+      <p class='absolute text-black transition-transform transform translate-y-full group-hover:translate-y-0 opacity-0 group-hover:opacity-100'>
+        Texto en el fondo
+      </p>
+    </a>
     </div>
-    <div class='flex items-center justify-center h-56 mb-4 rounded bg-blue-700 dark:bg-blue-700 duration-300 hover:scale-90'>
-      <a href="/Galeria" class='text-2xl'>Galeria</a>
-    </div>
+    <a href="/Galeria" class='flex items-center justify-center h-40 mb-4 rounded bg-[#003e74] dark:bg-[#003e74] duration-700 group relative hover:scale-90'>
+      <p class='transition-transform transform group-hover:-translate-y-full relative text-2xl'>Galeria</p>
+      <p class='absolute text-black transition-transform transform translate-y-full group-hover:translate-y-0 opacity-0 group-hover:opacity-100'>
+          Texto en el fondo
+      </p>
+    </a>
     <div class='grid grid-cols-2 gap-4'>
-      <div class='flex items-center justify-center rounded bg-black h-32 dark:bg-white duration-300 hover:scale-90'>
+      <div class='flex items-center justify-center rounded bg-[#040804] h-28 dark:bg-[#e0dddd] duration-700 hover:scale-90'>
         <a href="/Informacion" class='text-2xl text-white dark:text-black'>Informacion</a>
       </div>
-      <div class='flex items-center justify-center rounded bg-red-600 h-32 dark:bg-red-600 duration-300 hover:scale-90'>
+      <div class='flex items-center justify-center rounded bg-[#a6311d] h-28 dark:bg-[#da4126] duration-700 hover:scale-90'>
         <a href="/Contacto" class='text-2xl'>Contacto</a>
       </div>
-      <div class='flex items-center justify-center rounded hover:scale-90 bg-yellow-300 h-32 duration-300 dark:bg-yellow-300'>
+      <div class='flex items-center justify-center rounded hover:scale-90 bg-[#ecbd4f] h-28 duration-700 dark:bg-[#ecbd4f]'>
         <a href="/QuienesSomos" class='text-2xl'>Quienes somos</a>
       </div>
-      <div class='flex items-center justify-center rounded hover:scale-90 bg-black h-32 duration-300 dark:bg-white'>
+      <div class='flex items-center justify-center rounded hover:scale-90 bg-[#040804] h-28 duration-700 dark:bg-[#e0dddd]'>
         <a href="/" class='text-2xl text-white dark:text-black''>???</a>
       </div>
     </div>
@@ -39,7 +51,7 @@ import Layout from '../layouts/Layout.astro'
   article {
     margin: auto;
     @apply dark:bg-black;
-    background-color: white;
+    background-color: #e0dddd;
     @apply rounded-lg;
     margin-top: 32px;
     margin-right: 32px;

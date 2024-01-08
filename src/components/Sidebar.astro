@@ -9,7 +9,7 @@ import Button from "./Button.astro";
   transition:persist
 >
   <div
-    class='h-full px-2 overflow-y-auto bg-slate-white border-r-2 border-black dark:bg-black py-6 dark:border-white dark:border-2'
+    class='h-full px-2 overflow-y-auto bg-slate-white border-r-2 border-black dark:bg-[#040804] py-6 dark:border-white dark:border-2'
   >
     <ul class='space-y-4 font-medium mt-4'>
       <li>
@@ -34,11 +34,3 @@ import Button from "./Button.astro";
     </footer>
   </div>
 </aside>
-
-<style is:global>
-  @media (max-width: 1024px) {
-    #logo-sidebar {
-      transform: translateX(-100%);
-    }
-  }
-</style>

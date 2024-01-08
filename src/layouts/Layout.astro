@@ -18,10 +18,10 @@ const { title } = Astro.props
     <title>{title}</title>
   </head>
   <body class='h-screen w-screen'>
-    <div class='[grid-area:Header] row-span-2'>
+    <div class='[grid-area:Header]'>
       <Header />
     </div>
-    <div class='[grid-area:Sidebar]'>
+    <div id="sidebar" class='[grid-area:Sidebar]'>
       <Sidebar />
     </div>
     <div class="[grid-area:Slot]">
@@ -31,8 +31,8 @@ const { title } = Astro.props
   <style is:global>
     html {
       font-family: monospace, system-ui;
-      background: white;
-      @apply dark:bg-black;
+      background: #e0dddd;
+      @apply dark:bg-[#040804];
       overflow-x: hidden;
     }
     body {
@@ -41,18 +41,23 @@ const { title } = Astro.props
         'Header Header'
         'Sidebar Slot'
         'Sidebar Slot';
-      grid-template-columns: 1fr; /* Cambié a una sola columna para móviles */
-      grid-template-rows: auto; /* Ajustado a alturas automáticas */
+      grid-template-columns: 1fr; 
+      grid-template-rows: auto;
     }
     body::-webkit-scrollbar {
     display: none;
     }
-    /* Añadí una regla de medios para tamaños de pantalla más pequeños */
-    @media screen and (min-width: 800px) {
+    @media screen and (min-width: 1280px) {
       body {
         grid-template-columns: 0.4fr 2fr;
         grid-template-rows: 0.25fr 2fr;
       }
     }
+    @media (max-width: 750px) {
+      #sidebar {
+        display: none;
+      }
+    }
+    
   </style>
 </html>

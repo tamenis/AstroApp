@@ -2,8 +2,13 @@
 import Layout from "../layouts/Layout.astro";
 ---
 <Layout title="index">
-    <article slot='content' class='mr-16 my-8 sm:mt-8 h-screen rounded-md max-h-screen max-w-auto bg-red-600'>
-        <h1 class="text-center text-7xl p-4 tracking-widest underline antialiased">Titulo</h1>
-
+    <article slot="content" class="flex items-center justify-center h-screen mr-16 m-8 my-8">
+      <!-- Elemento con fondo rojo (borde) -->
+      <div class="bg-red-600 p-2 rounded-md flex items-center justify-center w-full h-full">
+        <!-- Cuadrado con fondo blanco (contenido) -->
+        <div class="bg-white dark:bg-black p-8 rounded-md relative w-full h-full">
+          <h1 class="text-center text-7xl tracking-widest underline antialiased dark:text-white">Titulo</h1>
+        </div>
+      </div>
     </article>
-</Layout>
+  </Layout>
