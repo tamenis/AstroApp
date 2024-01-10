@@ -1,0 +1,59 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title='index'>
+  <article slot='content' class='mx-16 sm:mt-16 my-8 max-w-screen bg-[#e0dddd] dark:bg-[#040804]'>
+    <dv class="bento">
+      <div class="bento__container">
+        <div id="bento__item" class="bg-[#a6311d] " style="--rows: span 2; --columns: 1 / -1;"></div>
+        <div id="bento__item" class="bg-[#a6311d] "  style="--rows: span 2;"></div>
+        <div id="bento__item" class="bg-[#a6311d]" style="--rows: span 2; --columns: span 2;"></div>
+        <div id="bento__item" class="bg-[#a6311d]"  style="--columns: 1 / -1;"></div>
+        <div id="bento__item" class="bg-[#a6311d]"  style="--columns: span 2;"></div>
+        <div id="bento__item" class="bg-[#a6311d]"  ></div>
+      </div>
+    </div>
+  </article>
+</Layout>
+
+<style is:global>
+  #container {
+    margin: auto;
+    @apply dark:bg-black;
+    background-color: #e0dddd;
+    @apply rounded-lg;
+    margin-right: 32px;
+    @apply max-h-full;
+    @apply flex-grow;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+  }
+  .bento {
+  min-block-size: 80vh;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1ch;
+  padding: 1ch;
+}
+
+.bento__container {
+  display: grid;
+  grid-template-rows: 1fr 0.5fr 0.5fr 1fr 1fr 1fr;
+  gap: 1ch;
+  min-height: inherit;
+  flex: 2 0 320px;
+  grid-template-columns: 3fr 1fr 2fr;
+
+}
+#bento__item {
+  height: 100%; width: 100%;
+  grid-column: var(--columns, span 1);
+  grid-row: var(--rows, span 1);
+  border-radius: 1rem;
+}
+
+
+
+</style>
+
