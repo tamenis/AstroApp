@@ -56,6 +56,15 @@ const { title } = Astro.props
     @media (max-width: 1100px) {
       #sidebar {
         display: none;
+
+      }
+    }
+    @media (max-width: 400px) {
+      #sidebar {
+        grid-template-areas: 
+        'Header'
+        'Slot'
+        ;
       }
     }
   </style>
