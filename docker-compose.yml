@@ -1,0 +1,32 @@
+// Version de Docker Compose
+version: '3'
+// En este apartado vienen descritas las imágenes y consecuentemente los contenedores que vamos a desplegar
+services:
+  // Imagen node-js
+  web:
+    // Nombre del contenedor
+    container_name: web-app
+    // Con este parámetro se describe la frecuencia con la que el contenedor se reinicia
+    restart: always
+    // Con build le indicamos dónde se encuentra el archivo Dockerfile para construir esta imagen
+    build: .
+    // Ports expone los puertos que le indiquemos en el contenedor y en el host del contenedor
+    ports:
+      - "4321:4321"
+    // Links indica que el contenedor web depende de que el contenedor mongo funcione
+    links:
+      - mongo
+    // Volumes crea dos carpetas, una en el contenedor y otra en la máquina local. Estas carpetas están enlazadas y se actualizan cada vez que cambiamos el contenido.
+    volumes:
+      - ./src:/usr/app/src
+
+  // Este es el contenedor que despliega la imagen de MongoDB
+  mongo:
+    container_name: mongodb
+    // Image indicará a Docker que queremos que descargue la imagen de sus repositorios
+    image: mongo
+    ports:
+      - "27018:27017"
+    // En este caso, Volumes creará una carpeta en el ordenador local con todos los archivos de MongoDB, lo que nos permitiría realizar una copia de seguridad de manera sencilla
+    volumes:
+      - ./db:/data/db
