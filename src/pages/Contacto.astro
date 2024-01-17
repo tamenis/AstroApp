@@ -7,10 +7,52 @@ export const prerender = false
 
 const uri = import.meta.env.MONGODB_URI
 
+
+const placeholder = {
+  plnombre: 'Introduce tu nombre',
+  plapellidos: 'Introduce tus apellidos',
+  plemail: 'Introduce tu email',
+  pltelefono: 'Introduce tu telefono',
+  plmensaje: 'Introduce tu mensaje',
+}
+
+if (Astro.request.method === "POST"){
+  
+  try{
+    let permitirConexiondb = false
+    const data = await Astro.request.formData()
+    const nombre = data.get('nombre')
+    const apellidos = data.get('apellidos')
+    const email = data.get('email')
+    const telefono = data.get('telefono')
+    const disponibilidadDia = data.get('disponibilidadDia')
+    const disponibilidadHora = data.get('disponibilidadHora')
+    const mensaje = data.get('mensaje')
+    if (typeof nombre !== "string" || nombre.length < 1) {
+      placeholder.plnombre += "Por favor introduzca un nombre. ";
+    }else{
+      permitirConexiondb = true
+    }
+    if (typeof email !== "string" || email.length<1) {
+      placeholder.plemail += "Por favor introduzca su email. ";
+    }else {
+      permitirConexiondb = true
+    }
+    if (permitirConexiondb){
+
+    }
+    
+    }catch (error) {
+    if (error instanceof Error){
+      console.error(error.message)
+    }
+  }
+}
+
 ---
 
 <Layout title='Contacto'>
-  <div slot="content" class="space-y-8 mt-24 lg:mr-4 lg:mt-10 dark:bg-[#003e74] lg:rounded-xl p-4 h-screen lg:h-auto">
+  <form method="POST" slot="content" class="space-y-8 mt-24 lg:mr-4 lg:mt-10 dark:bg-[#003e74] lg:rounded-xl p-4 h-screen lg:h-auto">
     <div class="space-y-2">
       <h2 class="text-3xl font-bold dark:text-white">Formulario de contacto</h2>
       <p class="dark:text-white">
@@ -29,7 +71,8 @@ const uri = import.meta.env.MONGODB_URI
           <input
             class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
             id="first-name"
-            placeholder="Introduce tu nombre"
+            placeholder={placeholder.plnombre}
+            name="nombre"
           />
         </div>
         <div class="space-y-2">
@@ -42,24 +85,45 @@ const uri = import.meta.env.MONGODB_URI
           <input
             class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
             id="last-name"
-            placeholder="Introduce tus apellidos"
+            placeholder={placeholder.plapellidos}
+            name="apellidos"
           />
         </div>
       </div>
-      <div class="space-y-2">
-        <label
-          class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:text-white"
-          for="email"
-        >
-          Email
-        </label>
-        <input
-          class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-          id="email"
-          placeholder="Introduce tu email"
-          type="email"
-        />
-      </div>
+      <div class="space-y-4">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="space-y-2">
+            <label
+              class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:text-white"
+              for="email"
+            >
+              Email
+            </label>
+            <input
+              class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              id="email"
+              placeholder={placeholder.plemail}
+              type="email"
+              name="email"
+            />
+            
+          </div>
+          <div class="space-y-2">
+            <label
+              class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:text-white"
+              for="last-name"
+            >
+              Numero de telefono
+            </label>
+            <input
+              class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              id="last-name"
+              placeholder={placeholder.pltelefono}
+              name="telefono"
+            />
+          </div>
+        </div>
+
       <div class="space-y-2">
         <label
           class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:text-white"
@@ -78,6 +142,7 @@ const uri = import.meta.env.MONGODB_URI
             data-placeholder=""
             class="flex h-10 w-full items-center justify-between rounded-md border border-input bg-white px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
             id="availability"
+            name="disponibilidadDia"
           >
             <option>Lunes</option>
             <option>Martes</option>
@@ -103,6 +168,7 @@ const uri = import.meta.env.MONGODB_URI
           <input
             class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
             type="time"
+            name="disponibilidadHora"
           />
         </div>
       </div>
@@ -116,12 +182,13 @@ const uri = import.meta.env.MONGODB_URI
         <textarea
           class="flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 min-h-[100px]"
           id="message"
-          placeholder="Escribe tu mensaje"
+          placeholder={placeholder.plmensaje}
+          name="mensaje"
         ></textarea>
       </div>
       <button class="bg-black dark:bg-[#e0dddd] text-white dark:text-black inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
         Enviar formulario
       </button>
     </div>
-  </div>
+  </form>
 </Layout>
