@@ -1,5 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro'
+//Importamos el adaptador de mongodb
+import { Db, MongoClient } from 'mongodb'
+//Hacemos que la página no se prerenderice en el servidor
+export const prerender = false
+
+const uri = import.meta.env.MONGODB_URI
+
 ---
 
 <Layout title='Contacto'>
