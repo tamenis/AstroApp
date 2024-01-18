@@ -30,17 +30,18 @@ if (Astro.request.method === "POST"){
     const disponibilidadHora = data.get('disponibilidadHora')
     const mensaje = data.get('mensaje')
     if (typeof nombre !== "string" || nombre.length < 1) {
-      placeholder.plnombre += "Por favor introduzca un nombre. ";
+      placeholder.plnombre = "Por favor introduzca un nombre. ";
     }else{
       nombreValido = true
     }
     if (typeof email !== "string" || email.length<1) {
-      placeholder.plemail += "Por favor introduzca su email. ";
+      placeholder.plemail = "Por favor introduzca su email. ";
     }else {
       correoValido = true
     }
     if (nombreValido && correoValido){
       const client = new MongoClient(uri)
+      console.log('conexión base de datos')
       async function run () {
         try{
           await client.db().command({ping:1})
@@ -49,6 +50,7 @@ if (Astro.request.method === "POST"){
             const collection = db.collection("Formularios")
             const doc = {
               Nombre:`${nombre}`,
+              Apellidos:`${apellidos}`,
               Correo:`${email}`,
               Telefono:`${telefono}`,
               DisponibilidadDia:`${disponibilidadDia}`,
@@ -56,11 +58,12 @@ if (Astro.request.method === "POST"){
               Mensaje:`${mensaje}`
             }
             const result = await collection.insertOne(doc)
+            console.log('Inserción realizada')
         } finally{
           await client.close()
         }
-        run().catch(console.dir)
       }
+      run().catch(console.dir)
     }
     
     }catch (error) {
@@ -73,7 +76,7 @@ if (Astro.request.method === "POST"){
 ---
 
 <Layout title='Contacto'>
-  <form method="POST" slot="content" class="space-y-8 mt-24 lg:mr-4 lg:mt-10 dark:bg-[#003e74] lg:rounded-xl p-4 h-screen lg:h-auto">
+  <form method="POST" action="/Contacto" slot="content" class="space-y-8 mt-24 lg:mr-4 lg:mt-10 dark:bg-[#003e74] lg:rounded-xl p-4 h-screen lg:h-auto">
     <div class="space-y-2">
       <h2 class="text-3xl font-bold dark:text-white">Formulario de contacto</h2>
       <p class="dark:text-white">
