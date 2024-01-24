@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import BentoItem from '../components/BentoItem.astro';
+import BentoItem from '../components/BentoItem.astro'
 ---
 
 <Layout title='index'>
@@ -9,14 +9,44 @@ import BentoItem from '../components/BentoItem.astro';
     class='max-w-screen lg:mt-10 lg:ml-6 bg-[#e0dddd] dark:bg-[#18191d] mb-8 max-w-auto relative'
   >
     <div class='grid grid-cols-7 mb-4 gap-4 h-32 lg:h-32'>
-      <BentoItem enlace="/Contenido1" estilo="col-span-3 flex items-center justify-center h-full rounded bg-[#a6311d] duration-700 group relative hover:scale-90" titulo="Contenido1" contenido="Hola mundo"></BentoItem>
-      <BentoItem enlace="/Contenido2" estilo="col-span-4 flex items-center justify-center h-full rounded bg-[#18191d] text-white dark:text-black dark:bg-[#e0dddd] duration-700 group relative hover:scale-90" titulo="Contenido2" contenido="Hola mundo"></BentoItem>
-      </div>
-      <BentoItem enlace="/Galeria" estilo="flex items-center h-32 lg:h-40 justify-center mb-4 rounded bg-[#003e74] duration-700 group relative hover:scale-90" titulo="Galeria" contenido="Hola mundo"></BentoItem>
+      <BentoItem
+        enlace='/Contenido1'
+        estilo='col-span-3 flex items-center justify-center h-full rounded bg-[#a6311d] duration-700 group relative hover:scale-90'
+        titulo='Contenido1'
+        contenido='Hola mundo'
+      />
+      <BentoItem
+        enlace='/Contenido2'
+        estilo='col-span-4 flex items-center justify-center h-full rounded bg-[#18191d] text-white dark:text-black dark:bg-[#e0dddd] duration-700 group relative hover:scale-90'
+        titulo='Contenido2'
+        contenido='Hola mundo'
+      />
+    </div>
+    <BentoItem
+      enlace='/Galeria'
+      estilo='flex items-center h-32 lg:h-40 justify-center mb-4 rounded bg-[#003e74] duration-700 group relative hover:scale-90'
+      titulo='Galeria'
+      contenido='Hola mundo'
+    />
     <div class='grid grid-cols-2 gap-4 grid-rows-2'>
-      <BentoItem enlace="/Informacion" estilo="h-28 lg:h-32 flex items-center justify-center rounded bg-[#18191d] dark:bg-[#e0dddd] text-white dark:text-black duration-700 group relative hover:scale-90" titulo="Informacion" contenido="Hola mundo"></BentoItem>
-      <BentoItem enlace="/Contacto" estilo="row-span-2 flex items-center justify-center rounded bg-[#a6311d] duration-700 group relative hover:scale-90" titulo="Contacto" contenido="Hola mundo"></BentoItem>
-      <BentoItem enlace="/QuienesSomos" estilo="h-28 lg:h-32 flex items-center justify-center rounded bg-[#ecbd4f] duration-700 group relative hover:scale-90" titulo="Quienes somos" contenido="Hola mundo"></BentoItem>
+      <BentoItem
+        enlace='/Informacion'
+        estilo='h-28 lg:h-32 flex items-center justify-center rounded bg-[#18191d] dark:bg-[#e0dddd] text-white dark:text-black duration-700 group relative hover:scale-90'
+        titulo='Informacion'
+        contenido='Hola mundo'
+      />
+      <BentoItem
+        enlace='/Contacto'
+        estilo='row-span-2 flex items-center justify-center rounded bg-[#a6311d] duration-700 group relative hover:scale-90'
+        titulo='Contacto'
+        contenido='Hola mundo'
+      />
+      <BentoItem
+        enlace='/QuienesSomos'
+        estilo='h-28 lg:h-32 flex items-center justify-center rounded bg-[#ecbd4f] duration-700 group relative hover:scale-90'
+        titulo='Quienes somos'
+        contenido='Hola mundo'
+      />
     </div>
   </article>
 </Layout>

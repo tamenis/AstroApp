@@ -29,45 +29,43 @@ const { title } = Astro.props
     <div class='[grid-area:Slot]'>
       <slot name='content' />
     </div>
-  </body>
-  <style is:global>
-    html {
-      font-family: monospace, system-ui;
-      background: #e0dddd;
-      @apply dark:bg-[#18191d];
-      overflow-x: hidden;
-    }
-    body {
-      display: grid;
-      grid-template-areas:
-        'Header Header'
-        'Sidebar Slot'
-        'Sidebar Slot';
-      grid-template-columns: 1fr;
-      grid-template-rows: auto;
-    }
-    body::-webkit-scrollbar {
-      display: none;
-    }
-    @media screen and (min-width: 1280px) {
+    <style is:global>
+      html {
+        font-family: monospace, system-ui;
+        background: #e0dddd;
+        @apply dark:bg-[#18191d];
+        overflow-x: hidden;
+      }
       body {
-        grid-template-columns: 0.4fr 2fr;
-        grid-template-rows: 0.25fr 2fr;
+        display: grid;
+        grid-template-areas:
+          'Header Header'
+          'Sidebar Slot'
+          'Sidebar Slot';
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
       }
-    }
-    @media (max-width: 1100px) {
-      #sidebar {
+      body::-webkit-scrollbar {
         display: none;
-
       }
-    }
-    @media (max-width: 350px) {
-      #sidebar {
-        grid-template-areas: 
-        'Header'
-        'Slot'
-        ;
+      @media screen and (min-width: 1280px) {
+        body {
+          grid-template-columns: 0.4fr 2fr;
+          grid-template-rows: 0.25fr 2fr;
+        }
       }
-    }
-  </style>
+      @media (max-width: 1100px) {
+        #sidebar {
+          display: none;
+        }
+      }
+      @media (max-width: 350px) {
+        #sidebar {
+          grid-template-areas:
+            'Header'
+            'Slot';
+        }
+      }
+    </style>
+  </body>
 </html>
