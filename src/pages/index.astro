@@ -57,9 +57,13 @@ import BentoItem from '../components/BentoItem.astro'
     @apply dark:bg-[#151515];
     background-color: #e0dddd;
     @apply rounded-lg;
-    margin-top: 40px;
-    margin-right: 32px;
+    margin: 32px;
     @apply max-h-screen;
     @apply flex-grow;
+  }
+  @media(height < 710px){
+    article{
+        margin-top: 128px;
+      }
   }
 </style>
