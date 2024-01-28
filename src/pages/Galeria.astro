@@ -1,118 +1,35 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import { Image } from 'astro:assets'
-import Imagen1 from '../images/Imagen1.jpg'
-import Imagen2 from '../images/PlantaBaja1.jpg'
-import Imagen3 from '../images/PlantaBaja2.jpg'
-import Imagen4 from '../images/Habita1.jpg'
-import Imagen5 from '../images/Habita2.jpg'
-import Imagen6 from '../images/Habita4.jpg'
-import Imagen7 from '../images/PlantaBaja3.jpg'
-import Imagen8 from '../images/Salon1.jpg'
-import Imagen9 from '../images/Habita3.jpg'
-import Imagen10 from '../images/Salon2.jpg'
-import Imagen11 from '../images/Comedor1.jpg'
-import Imagen12 from '../images/Salon3.jpg'
+import 'photoswipe/style.css'
 ---
 
 <Layout title='Galeria'>
   <div
     slot='content'
-    class='mx-8 mt-24 sm:mt-16 max-w-screen h-auto dark:bg-[#18191d] relative'
+    class='grid lg:grid-cols-4 grid-cols-2 gap-4 mx-8 lg:mt-24 sm:mt-16 md:mt-32 mt-32 mb-4 max-w-screen h-auto dark:bg-[#18191d] relative'
+    id="galeria"
   >
-    <div class='grid grid-cols-2 md:grid-cols-4 gap-4'>
-      <div class='grid gap-4'>
-        <div>
-          <Image
-            src={Imagen1}
-            alt='Foto1'
-            class='h-full max-w-full rounded-lg'
-          />
-        </div>
-        <div>
-          <Image
-            class='h-full max-w-full rounded-lg'
-            src={Imagen2}
-            alt='Foto2'
-          />
-        </div>
-        <div>
-          <Image
-            class='h-full max-w-full rounded-lg'
-            src={Imagen3}
-            alt=''
-          />
-        </div>
-      </div>
-      <div class='grid gap-4'>
-        <div>
-          <Image
-            class='h-full max-w-full rounded-lg'
-            src={Imagen4}
-            alt=''
-          />
-        </div>
-        <div>
-          <Image
-            class='h-full max-w-full rounded-lg'
-            src={Imagen5}
-            alt=''
-          />
-        </div>
-        <div>
-          <Image
-            class='h-full max-w-full rounded-lg'
-            src={Imagen6}
-            alt=''
-          />
-        </div>
-      </div>
-      <div class='grid gap-4'>
-        <div>
-          <Image
-            class='h-full max-w-full rounded-lg'
-            src={Imagen7}
-            alt=''
-          />
-        </div>
-        <div>
-          <Image
-            class='h-full max-w-full rounded-lg'
-            src={Imagen8}
-            alt=''
-          />
-        </div>
-        <div>
-          <Image
-            class='h-full max-w-full rounded-lg'
-            src={Imagen9}
-            alt=''
-          />
-        </div>
-      </div>
-      <div class='grid gap-4'>
-        <div>
-          <Image
-            class='h-full max-w-full rounded-lg'
-            src={Imagen10}
-            alt=''
-          />
-        </div>
-        <div>
-          <Image
-            class='h-full max-w-full rounded-lg'
-            src={Imagen11}
-            alt=''
-          />
-        </div>
-        <div>
-          <Image
-            class='h-full max-w-full rounded-lg'
-            src={Imagen12}
-            alt=''
-          />
-        </div>
-      </div>
-    </div>
+  {
+    Array.from({length:12}).map((_,i) =>(
+      <a 
+        href={`./src/images/galeria/img-${i+1}.jpg`}
+        data-pswp-width="1280"
+        data-pswp-height="720"
+        target="_blank"
+      >
+        <img src={`./src/images/galeria/img-${i+1}.jpg`} class="rounded-md"/>
+      </a>
+    ))
+  }
   </div>
 </Layout>
+<script>
+  import PhotoSwipeLightbox from 'photoswipe/lightbox'
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '#galeria',
+    children: 'a',
+    showHideAnimationType: 'fade',
+    pswpModule: () => import('photoswipe')
+  });
+  lightbox.init();
+  </script>
