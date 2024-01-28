@@ -8,11 +8,11 @@ export const prerender = false
 const uri = import.meta.env.MONGODB_URI
 
 const placeholder = {
-  plnombre: 'Introduce tu nombre',
-  plapellidos: 'Introduce tus apellidos',
-  plemail: 'Introduce tu email',
-  pltelefono: 'Introduce tu telefono',
-  plmensaje: 'Introduce tu mensaje'
+  nombre: 'Introduce tu nombre',
+  apellidos: 'Introduce tus apellidos',
+  email: 'Introduce tu email',
+  telefono: 'Introduce tu telefono',
+  mensaje: 'Introduce tu mensaje'
 }
 
 if (Astro.request.method === 'POST') {
@@ -28,12 +28,12 @@ if (Astro.request.method === 'POST') {
     const disponibilidadHora = data.get('disponibilidadHora')
     const mensaje = data.get('mensaje')
     if (typeof nombre !== 'string' || nombre.length < 1) {
-      placeholder.plnombre = 'Por favor introduzca un nombre. '
+      placeholder.nombre = 'Por favor introduzca un nombre. '
     } else {
       nombreValido = true
     }
     if (typeof email !== 'string' || email.length < 1) {
-      placeholder.plemail = 'Por favor introduzca su email. '
+      placeholder.email = 'Por favor introduzca su email. '
     } else {
       correoValido = true
     }
@@ -76,7 +76,7 @@ if (Astro.request.method === 'POST') {
     method='POST'
     action='/Contacto'
     slot='content'
-    class='space-y-8 mt-24 lg:mr-2 lg:ml-4 lg:mt-10 dark:bg-[#003e74] lg:rounded-xl p-4 h-screen lg:h-auto'
+    class='space-y-8 mt-24 lg:mr-3 lg:ml-6 lg:mt-10 dark:bg-[#003e74] lg:rounded-xl p-4 h-screen lg:h-auto'
   >
     <div class='space-y-2'>
       <h2 class='text-3xl font-bold dark:text-white'>Formulario de contacto</h2>
@@ -96,7 +96,7 @@ if (Astro.request.method === 'POST') {
           <input
             class='flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50'
             id='first-name'
-            placeholder={placeholder.plnombre}
+            placeholder={placeholder.nombre}
             name='nombre'
           />
         </div>
@@ -110,7 +110,7 @@ if (Astro.request.method === 'POST') {
           <input
             class='flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50'
             id='last-name'
-            placeholder={placeholder.plapellidos}
+            placeholder={placeholder.apellidos}
             name='apellidos'
           />
         </div>
@@ -127,7 +127,7 @@ if (Astro.request.method === 'POST') {
             <input
               class='flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50'
               id='email'
-              placeholder={placeholder.plemail}
+              placeholder={placeholder.email}
               type='email'
               name='email'
             />
@@ -142,7 +142,7 @@ if (Astro.request.method === 'POST') {
             <input
               class='flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50'
               id='last-name'
-              placeholder={placeholder.pltelefono}
+              placeholder={placeholder.telefono}
               name='telefono'
             />
           </div>
@@ -206,7 +206,7 @@ if (Astro.request.method === 'POST') {
           <textarea
             class='flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 min-h-[100px]'
             id='message'
-            placeholder={placeholder.plmensaje}
+            placeholder={placeholder.mensaje}
             name='mensaje'></textarea>
         </div>
         <button

@@ -2,12 +2,23 @@
 import Layout from '../layouts/Layout.astro'
 import { Image } from 'astro:assets'
 import Imagen1 from '../images/Imagen1.jpg'
+import Imagen2 from '../images/PlantaBaja1.jpg'
+import Imagen3 from '../images/PlantaBaja2.jpg'
+import Imagen4 from '../images/Habita1.jpg'
+import Imagen5 from '../images/Habita2.jpg'
+import Imagen6 from '../images/Habita4.jpg'
+import Imagen7 from '../images/PlantaBaja3.jpg'
+import Imagen8 from '../images/Salon1.jpg'
+import Imagen9 from '../images/Habita3.jpg'
+import Imagen10 from '../images/Salon2.jpg'
+import Imagen11 from '../images/Comedor1.jpg'
+import Imagen12 from '../images/Salon3.jpg'
 ---
 
 <Layout title='Galeria'>
   <div
     slot='content'
-    class='mx-16 mt-24 sm:mt-16 mb-8 max-w-auto dark:bg-[#18191d] relative'
+    class='mx-8 mt-24 sm:mt-16 max-w-screen h-auto dark:bg-[#18191d] relative'
   >
     <div class='grid grid-cols-2 md:grid-cols-4 gap-4'>
       <div class='grid gap-4'>
@@ -19,85 +30,85 @@ import Imagen1 from '../images/Imagen1.jpg'
           />
         </div>
         <div>
-          <img
-            class='h-auto max-w-full rounded-lg'
-            src='https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg'
-            alt=''
+          <Image
+            class='h-full max-w-full rounded-lg'
+            src={Imagen2}
+            alt='Foto2'
           />
         </div>
         <div>
-          <img
-            class='h-auto max-w-full rounded-lg'
-            src='https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg'
-            alt=''
-          />
-        </div>
-      </div>
-      <div class='grid gap-4'>
-        <div>
-          <img
-            class='h-auto max-w-full rounded-lg'
-            src='https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg'
-            alt=''
-          />
-        </div>
-        <div>
-          <img
-            class='h-auto max-w-full rounded-lg'
-            src='https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg'
-            alt=''
-          />
-        </div>
-        <div>
-          <img
-            class='h-auto max-w-full rounded-lg'
-            src='https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg'
+          <Image
+            class='h-full max-w-full rounded-lg'
+            src={Imagen3}
             alt=''
           />
         </div>
       </div>
       <div class='grid gap-4'>
         <div>
-          <img
-            class='h-auto max-w-full rounded-lg'
-            src='https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg'
+          <Image
+            class='h-full max-w-full rounded-lg'
+            src={Imagen4}
             alt=''
           />
         </div>
         <div>
-          <img
-            class='h-auto max-w-full rounded-lg'
-            src='https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg'
+          <Image
+            class='h-full max-w-full rounded-lg'
+            src={Imagen5}
             alt=''
           />
         </div>
         <div>
-          <img
-            class='h-auto max-w-full rounded-lg'
-            src='https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg'
+          <Image
+            class='h-full max-w-full rounded-lg'
+            src={Imagen6}
             alt=''
           />
         </div>
       </div>
       <div class='grid gap-4'>
         <div>
-          <img
-            class='h-auto max-w-full rounded-lg'
-            src='https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg'
+          <Image
+            class='h-full max-w-full rounded-lg'
+            src={Imagen7}
             alt=''
           />
         </div>
         <div>
-          <img
-            class='h-auto max-w-full rounded-lg'
-            src='https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg'
+          <Image
+            class='h-full max-w-full rounded-lg'
+            src={Imagen8}
             alt=''
           />
         </div>
         <div>
-          <img
-            class='h-auto max-w-full rounded-lg'
-            src='https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg'
+          <Image
+            class='h-full max-w-full rounded-lg'
+            src={Imagen9}
+            alt=''
+          />
+        </div>
+      </div>
+      <div class='grid gap-4'>
+        <div>
+          <Image
+            class='h-full max-w-full rounded-lg'
+            src={Imagen10}
+            alt=''
+          />
+        </div>
+        <div>
+          <Image
+            class='h-full max-w-full rounded-lg'
+            src={Imagen11}
+            alt=''
+          />
+        </div>
+        <div>
+          <Image
+            class='h-full max-w-full rounded-lg'
+            src={Imagen12}
             alt=''
           />
         </div>
