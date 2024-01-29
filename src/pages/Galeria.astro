@@ -2,7 +2,8 @@
 import Layout from '../layouts/Layout.astro'
 import 'photoswipe/style.css'
 export const prerendeer = false
-
+import { Image } from 'astro:assets'
+import Imagen1 from './src/assets/galeria/img-1.jpg'
 ---
 
 <Layout title='Galeria'>
@@ -13,13 +14,14 @@ export const prerendeer = false
   >
   {
     Array.from({length:12}).map((_,i) =>(
+      
       <a 
-        href={`./src/images/galeria/img-${i+1}.jpg`}
+        href={`./src/assets/galeria/img-${i+1}.jpg`}
         data-pswp-width="1280"
         data-pswp-height="720"
         target="_blank"
       >
-        <img src={`./src/images/galeria/img-${i+1}.jpg`} class="rounded-md"/>
+      <img src={`./src/assets/galeria/img-${i+1}.jpg`} class="rounded-md" alt="Imagen de demostración"/>
       </a>
     ))
   }
