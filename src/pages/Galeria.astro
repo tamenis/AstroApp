@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import 'photoswipe/style.css'
+export const prerendeer = false
+
 ---
 
 <Layout title='Galeria'>
@@ -25,11 +27,20 @@ import 'photoswipe/style.css'
 </Layout>
 <script>
   import PhotoSwipeLightbox from 'photoswipe/lightbox'
-  const lightbox = new PhotoSwipeLightbox({
+  document.addEventListener("astro:after-swap", ()=>{
+    const lightbox = new PhotoSwipeLightbox({
     gallery: '#galeria',
     children: 'a',
-    showHideAnimationType: 'fade',
+    showHideAnimationType: 'zoom',
     pswpModule: () => import('photoswipe')
   });
   lightbox.init();
-  </script>
+  })
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '#galeria',
+    children: 'a',
+    showHideAnimationType: 'zoom',
+    pswpModule: () => import('photoswipe')
+  });
+  lightbox.init();
+</script>
