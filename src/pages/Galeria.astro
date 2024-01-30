@@ -2,47 +2,48 @@
 import Layout from '../layouts/Layout.astro'
 import 'photoswipe/style.css'
 export const prerendeer = false
-import { Image } from 'astro:assets'
-import Imagen1 from './src/assets/galeria/img-1.jpg'
 ---
 
 <Layout title='Galeria'>
   <div
     slot='content'
     class='grid lg:grid-cols-4 grid-cols-2 gap-4 mx-8 lg:mt-24 sm:mt-16 md:mt-32 mt-32 mb-4 max-w-screen h-auto dark:bg-[#18191d] relative'
-    id="galeria"
+    id='galeria'
   >
-  {
-    Array.from({length:12}).map((_,i) =>(
-      
-      <a 
-        href={`./src/assets/galeria/img-${i+1}.jpg`}
-        data-pswp-width="1280"
-        data-pswp-height="720"
-        target="_blank"
-      >
-      <img src={`./src/assets/galeria/img-${i+1}.jpg`} class="rounded-md" alt="Imagen de demostración"/>
-      </a>
-    ))
-  }
+    {
+      Array.from({ length: 12 }).map((_, i) => (
+        <a
+          href={`./src/assets/galeria/img-${i + 1}.jpg`}
+          data-pswp-width='1280'
+          data-pswp-height='720'
+          target='_blank'
+        >
+          <img
+            src={`./src/assets/galeria/img-${i + 1}.jpg`}
+            class='rounded-md'
+            alt='Imagen de demostración'
+          />
+        </a>
+      ))
+    }
   </div>
 </Layout>
 <script>
   import PhotoSwipeLightbox from 'photoswipe/lightbox'
-  document.addEventListener("astro:after-swap", ()=>{
+  document.addEventListener('astro:after-swap', () => {
     const lightbox = new PhotoSwipeLightbox({
-    gallery: '#galeria',
-    children: 'a',
-    showHideAnimationType: 'zoom',
-    pswpModule: () => import('photoswipe')
-  });
-  lightbox.init();
+      gallery: '#galeria',
+      children: 'a',
+      showHideAnimationType: 'zoom',
+      pswpModule: () => import('photoswipe')
+    })
+    lightbox.init()
   })
   const lightbox = new PhotoSwipeLightbox({
     gallery: '#galeria',
     children: 'a',
     showHideAnimationType: 'zoom',
     pswpModule: () => import('photoswipe')
-  });
-  lightbox.init();
+  })
+  lightbox.init()
 </script>

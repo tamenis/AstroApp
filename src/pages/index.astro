@@ -1,14 +1,25 @@
 ---
-import Layout from '../layouts/Layout.astro'
+import Header from '../components/Header.astro'
 import BentoItem from '../components/BentoItem.astro'
+import { ViewTransitions } from 'astro:transitions'
 ---
-
-<Layout title='index'>
-  <article
+<!doctype html>
+<html lang='es'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='description' content='' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <ViewTransitions />
+    <title>ruART</title>
+  </head>
+  <body>
+    <Header></Header>
+    <article
     slot='content'
-    class='max-w-screen lg:mt-10 lg:ml-8 lg:mr-5 sm:mx-8 mx-6 bg-[#e0dddd] dark:bg-[#18191d] mb-8 max-w-auto relative'
+    class='max-w-screen mt-28 mx-4 inset-0 bg-[#e0dddd] dark:bg-[#18191d] relative'
   >
-    <div class='grid grid-cols-7 mb-4 gap-4 h-32 lg:h-32'>
+    <div class='grid grid-cols-7 mb-4 gap-4 h-32 lg:h-40'>
       <BentoItem
         enlace='/Contenido1'
         estilo='col-span-3 flex items-center justify-center h-full rounded bg-[#a6311d] duration-700 group relative hover:scale-90'
@@ -49,7 +60,8 @@ import BentoItem from '../components/BentoItem.astro'
       />
     </div>
   </article>
-</Layout>
+  </body>
+
 
 <style is:global>
   article {
@@ -57,12 +69,17 @@ import BentoItem from '../components/BentoItem.astro'
     @apply dark:bg-[#151515];
     background-color: #e0dddd;
     @apply rounded-lg;
-    @apply max-h-screen;
     @apply flex-grow;
   }
-  @media(height < 710px){
-    article{
-        margin-top: 128px;
-      }
+  @media (height < 710px) {
+    article {
+      margin-top: 128px;
+    }
   }
+  html {
+        font-family: monospace, system-ui;
+        background: #e0dddd;
+        @apply dark:bg-[#18191d];
+        overflow-x: hidden;
+      }
 </style>
