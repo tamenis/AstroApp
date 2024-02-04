@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro"
 import { Db,MongoClient } from "mongodb"
 const uri = import.meta.env.MONGODB_URI
-
+export const prerender = false
 export const POST: APIRoute = async ({ request }) => {
   const data = await request.formData()
   const nombre = data.get('nombre')
@@ -14,6 +14,10 @@ export const POST: APIRoute = async ({ request }) => {
   // Valida los datos - probablemente querrás hacer más que esto
   if (!nombre || !email) {
     return new Response(
+      JSON.stringify({
+        message: "Faltan campos requeridos",
+      }),
+      { status: 400 }
     );
   }
   const client = new MongoClient(uri)
@@ -45,6 +49,9 @@ export const POST: APIRoute = async ({ request }) => {
   }run().catch(console.dir)
   // Haz algo con los datos, luego devuelve una respuesta de éxito
   return new Response(
-  
-);
+    JSON.stringify({
+      message: "¡Éxito!"
+    }),
+    { status: 200 }
+  );
 };
