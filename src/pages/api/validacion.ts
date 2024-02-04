@@ -1,25 +1,26 @@
 import type { APIRoute } from "astro"
 import { Db,MongoClient } from "mongodb"
+import validator from 'validator'
 const uri = import.meta.env.MONGODB_URI
 export const prerender = false
+
 export const POST: APIRoute = async ({ request }) => {
   const data = await request.formData()
-  const nombre = data.get('nombre')
-  const apellidos = data.get('apellidos')
-  const email = data.get('email')
-  const telefono = data.get('telefono')
-  const disponibilidadDia = data.get('disponibilidadDia')
-  const disponibilidadHora = data.get('disponibilidadHora')
-  const mensaje = data.get('mensaje')
-  // Valida los datos - probablemente querrás hacer más que esto
-  if (!nombre || !email) {
+  let nombre = validator.escape(data.get('nombre') || ''); // Sanitizar el nombre
+  let apellidos = validator.escape(data.get('apellidos') || ''); // Sanitizar los apellidos
+  let email = validator.normalizeEmail(data.get('email') || ''); // Sanitizar y normalizar el correo electrónico
+  let telefono = validator.escape(data.get('telefono') || ''); // Sanitizar el teléfono
+  let disponibilidadDia = validator.escape(data.get('disponibilidadDia') || ''); // Sanitizar la disponibilidad del día
+  let disponibilidadHora = validator.escape(data.get('disponibilidadHora') || ''); // Sanitizar la disponibilidad de la hora
+  let mensaje = validator.escape(data.get('mensaje') || ''); // Sanitizar el mensaje
+
+  if (!validator.isEmail(email)||validator.isEmpty(nombre)) {
     return new Response(
-      JSON.stringify({
-        message: "Faltan campos requeridos",
-      }),
+      JSON.stringify({ error: "Email no válido" }),
       { status: 400 }
     );
   }
+
   const client = new MongoClient(uri)
   async function run() {
     try {

@@ -29,7 +29,7 @@ export default function Form(){
         <form
         onSubmit={submit}
         slot='content'
-        class='space-y-8 mt-28 lg:mr-3 lg:ml-6 lg:mt-2 xl:mr-16 mb-4 2xl:mt-20 dark:bg-[#003e74] lg:rounded-xl p-4 h-screen lg:h-auto'
+        class='space-y-8 mt-32 lg:mr-3 lg:ml-6 lg:mt-20 xl:mr-16 mb-4 2xl:mt-20 dark:bg-[#003e74] lg:rounded-xl p-4 h-screen lg:h-auto'
       >
         <div class='space-y-2'>
           <h2 class='text-3xl font-bold dark:text-white'>Formulario de contacto</h2>
