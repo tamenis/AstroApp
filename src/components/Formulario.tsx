@@ -15,7 +15,7 @@ export default function Form(){
     async function submit(e: SubmitEvent) {
       e.preventDefault();
       const formData = new FormData(e.target as HTMLFormElement);
-      const response = await fetch("./src/pages/api/validacion", {
+      const response = await fetch("api/validacion", {
         method: "POST",
         body: formData,
       });
@@ -29,7 +29,7 @@ export default function Form(){
         <form
         onSubmit={submit}
         slot='content'
-        class='space-y-8 mt-28 lg:mr-3 lg:ml-6 lg:mt-10 xl:mr-16 2xl:mt-20 dark:bg-[#003e74] lg:rounded-xl p-4 h-screen lg:h-auto'
+        class='space-y-8 mt-28 lg:mr-3 lg:ml-6 lg:mt-2 xl:mr-16 mb-4 2xl:mt-20 dark:bg-[#003e74] lg:rounded-xl p-4 h-screen lg:h-auto'
       >
         <div class='space-y-2'>
           <h2 class='text-3xl font-bold dark:text-white'>Formulario de contacto</h2>
@@ -51,6 +51,7 @@ export default function Form(){
                 id='first-name'
                 placeholder={placeholder.nombre}
                 name='nombre'
+                type='text'
               />
             </div>
             <div class='space-y-2'>
@@ -63,6 +64,7 @@ export default function Form(){
               <input
                 class='flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50'
                 id='last-name'
+                type='text'
                 placeholder={placeholder.apellidos}
                 name='apellidos'
               />
@@ -97,6 +99,7 @@ export default function Form(){
                   id='last-name'
                   placeholder={placeholder.telefono}
                   name='telefono'
+                  type='text'
                 />
               </div>
             </div>
