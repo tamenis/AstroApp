@@ -15,7 +15,7 @@ const placeholder = {
   mensaje: 'Introduce tu mensaje'
 }
 
-if (Astro.request.method === 'POST') {
+/*if (Astro.request.method === 'POST') {
   try {
     let nombreValido = false
     let correoValido = false
@@ -69,12 +69,13 @@ if (Astro.request.method === 'POST') {
     }
   }
 }
+*/
 ---
 
 <Layout title='Contacto'>
   <form
     method='POST'
-    action='/Contacto'
+    action='/validacion.ts'
     slot='content'
     class='space-y-8 mt-28 lg:mr-3 lg:ml-6 lg:mt-10 xl:mr-16 2xl:mt-20 dark:bg-[#003e74] lg:rounded-xl p-4 h-screen lg:h-auto'
   >
