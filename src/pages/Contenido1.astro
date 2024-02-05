@@ -2,23 +2,86 @@
 import Layout from '../layouts/Layout.astro'
 ---
 
-<Layout title='index'>
+<Layout title='Contenido1'>
   <article
     slot='content'
-    class='flex items-center justify-center h-screen mr-16 m-8 my-8'
+    class='flex items-center justify-center max-w-screen xl:mt-0 mt-40 sm:mb-4 lg:mb-4 mx-4 inset-0 bg-[#e0dddd] dark:bg-[#18191d] relative'
   >
-    <!-- Elemento con fondo rojo (borde) -->
-    <div
-      class='bg-red-600 p-2 rounded-md flex items-center justify-center w-full h-full'
-    >
-      <!-- Cuadrado con fondo blanco (contenido) -->
-      <div class='bg-white dark:bg-black p-8 rounded-md relative w-full h-full'>
-        <h1
-          class='text-center text-7xl tracking-widest underline antialiased dark:text-white'
-        >
-          Titulo
+  <div class="flex flex-col bg-[#e0dddd] dark:bg-[#18191d] lg:mt-8">
+    <main class="flex flex-col md:flex-row sm:flex-row flex-1 overflow-hidden">
+      <article class="prose prose-gray mx-auto p-6 max-w-screen max-h-screen md:w-3/4 dark:prose-invert">
+        <h1 class="text-4xl font-extrabold tracking-tight lg:text-5xl lg:leading-[3.5rem] dark:text-white">
+          The Ultimate Guide to Shopping Online
         </h1>
-      </div>
-    </div>
+        <p class="text-[#18191d] dark:text-[#e0dddd]">By Jane Doe | Posted on August 24, 2024</p>
+        <p class="text-[#18191d] dark:text-[#e0dddd]">
+          Online shopping is a form of electronic commerce which allows consumers to directly buy goods or services
+          from a seller over the Internet using a web browser or a mobile app...
+        </p>
+        <img
+          src="/placeholder.svg"
+          alt="Blog post image"
+          width="800"
+          height="400"
+          class="aspect-video object-cover"
+        />
+        <p class="text-[#18191d] dark:text-[#e0dddd]">
+          ...As of 2020, customers can shop online using a range of different computers and devices, including desktop
+          computers, laptops, tablet computers, smartphones, and smart speakers...
+        </p>
+      </article>
+      <aside class="w-full h-screen md:w-1/5 p-6 border-l border-black dark:border-white">
+        <div class="mb-6">
+          <h2 class="text-lg font-semibold">Related Products</h2>
+          <div class="mt-4 space-y-4">
+            <div class="flex items-center space-x-4">
+              <img
+                src="/placeholder.svg"
+                alt="Product image"
+                width="80"
+                height="80"
+                class="aspect-square object-cover"
+              />
+              <div class="flex-1">
+                <h3 class="text-sm font-semibold text-[#18191d] dark:text-[#e0dddd]">Product Name</h3>
+                <p class="text-sm text-[#18191d] dark:text-[#e0dddd] ">$99.99</p>
+              </div>
+            </div>
+            <div class="flex items-center space-x-4">
+              <img
+                src="/placeholder.svg"
+                alt="Product image"
+                width="80"
+                height="80"
+                class="aspect-square object-cover"
+              />
+              <div class="flex-1">
+                <h3 class="text-sm font-semibold text-[#18191d] dark:text-[#e0dddd]">Product Name</h3>
+                <p class="text-sm text-[#18191d] dark:text-[#e0dddd]">$99.99</p>
+              </div>
+            </div>
+          </div>
+        </div>        
+      </aside>
+    </main>
+  </div>
+
   </article>
 </Layout>
+
+<style>
+  @media (width<1480px) {
+    aside {
+    display: none;
+    }
+}
+@media (width:1280px) {
+    .xl\:mt-0 {
+        margin-top: 50px;
+    }
+}
+</style>
+
+
+
+
