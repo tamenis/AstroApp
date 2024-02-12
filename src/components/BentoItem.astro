@@ -1,5 +1,4 @@
 ---
-import { string } from 'astro/zod'
 interface Props {
   titulo: string
   estilo: string
@@ -11,12 +10,12 @@ const { titulo, estilo, contenido, enlace } = Astro.props
 
 <a href={enlace} class={estilo}>
   <p
-    class='transition-transform transform group-hover:-translate-y-full relative lg:text-2xl text-md group-hover:scale-75'
+    class='transition-transform transform group-hover:[display:none] relative lg:text-2xl text-md group-hover:scale-75 mb-4'
   >
     {titulo}
   </p>
   <p
-    class='absolute transition-transform transform translate-y-full group-hover:translate-y-0 opacity-0 group-hover:opacity-100 lg:text-base'
+    class='absolute transition-transform transform translate-y-full text-elipsis m-8 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 lg:text-base'
   >
     {contenido}
   </p>

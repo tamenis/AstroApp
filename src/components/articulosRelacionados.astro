@@ -1,0 +1,24 @@
+---
+import { Image } from 'astro:assets'
+interface Props {
+    enlace:string
+    imagen:string
+    nombre:string
+    descripcion:string
+    alt:string
+}
+const {enlace,imagen,nombre,descripcion,alt} = Astro.props
+---
+<a href={enlace} class="flex items-center space-x-4">
+    <img
+      src={imagen}
+      alt={alt}
+      width="80"
+      height="80"
+      class="aspect-square object-cover"
+    />
+    <div class="flex-1">
+      <h3 class="text-sm font-semibold text-[#18191d] dark:text-[#e0dddd]">{nombre}</h3>
+      <p class="text-sm text-[#18191d] dark:text-[#e0dddd] ">{descripcion}</p>
+    </div>
+  </a>
