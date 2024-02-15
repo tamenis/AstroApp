@@ -47,7 +47,7 @@ export const POST: APIRoute = async ({ request }) => {
       }
     } finally {
       await client.close()
-      return new Response(JSON.stringify({formulario:'exitoso'}), {
+      return new Response(JSON.stringify({}), {
         status: 200,
         headers: {
           'Content-Type': 'application/json'
