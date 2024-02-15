@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro'
 import { Db, MongoClient } from 'mongodb'
 import validator from 'validator'
-const uri = encodeURI("mongodb+srv://formUser:ybTuyL8ii7hy7HDj@ruart.hhrirls.mongodb.net/?retryWrites=true&w=majority")
+const uri = encodeURI(import.meta.env.MONGODB_URI_PRODUCCION)
 export const prerender = false
 
 export const POST: APIRoute = async ({ request }) => {
