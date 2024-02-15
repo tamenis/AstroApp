@@ -41,15 +41,15 @@ export const POST: APIRoute = async ({ request }) => {
       }
       const result = await collection.insertOne(doc)
       console.log('Inserción realizada')
+      return new Response (JSON.stringify({ error:'Formulario enviado' }),{
+        status: 200
+      })
     } catch (error) {
       if (error instanceof Error) {
         console.error(error.message)
       }
     } finally {
       await client.close()
-      return new Response (JSON.stringify({ error:'Formulario enviado' }),{
-        status: 200
-      })
     }
   }
   run().catch(console.dir)
