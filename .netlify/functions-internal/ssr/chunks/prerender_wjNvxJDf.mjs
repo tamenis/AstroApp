@@ -1,0 +1,11 @@
+const noop = () => {};
+export const C = noop;
+export const G = noop;
+export const I = noop;
+export const P = noop;
+export const Q = noop;
+export const T = noop;
+export const _ = noop;
+export const a = noop;
+export const f = noop;
+export const i = noop;

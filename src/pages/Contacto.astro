@@ -1,10 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Formulario from '../components/Formulario.tsx'
-//Hacemos que la página no se prerenderice
 export const prerender = false
 ---
 
 <Layout title='Contacto'>
-  <Formulario slot='content' client:load />
+  <Formulario slot='content' client:only="preact"/>
 </Layout>

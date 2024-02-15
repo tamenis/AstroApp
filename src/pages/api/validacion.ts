@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro'
 import { Db, MongoClient } from 'mongodb'
 import validator from 'validator'
-const uri = import.meta.env.MONGODB_URI
+const uri = encodeURI("mongodb+srv://formUser:ybTuyL8ii7hy7HDj@ruart.hhrirls.mongodb.net/?retryWrites=true&w=majority")
 export const prerender = false
 
 export const POST: APIRoute = async ({ request }) => {
@@ -17,7 +17,7 @@ export const POST: APIRoute = async ({ request }) => {
   let mensaje = validator.escape(data.get('mensaje') || '') // Sanitizar el mensaje
 
   if (!validator.isEmail(email) || validator.isEmpty(nombre)) {
-    return new Response(JSON.stringify({ error: 'Email no válido' }), {
+    return new Response(JSON.stringify({ error: 'Email o nombre no válido' }), {
       status: 400
     })
   }
@@ -25,7 +25,8 @@ export const POST: APIRoute = async ({ request }) => {
   const client = new MongoClient(uri)
   async function run() {
     try {
-      await client.db().command({ ping: 1 })
+      await client.connect()
+      await client.db("formUser").command({ ping: 1 })
       console.log('Conexión realizada con la base de datos')
       const db = client.db('Contactos')
       const collection = db.collection('Formularios')
@@ -46,14 +47,13 @@ export const POST: APIRoute = async ({ request }) => {
       }
     } finally {
       await client.close()
+      return new Response(JSON.stringify({}), {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
     }
   }
   run().catch(console.dir)
-  // Haz algo con los datos, luego devuelve una respuesta de éxito
-  return new Response(
-    JSON.stringify({
-      message: '¡Éxito!'
-    }),
-    { status: 200 }
-  )
 }
