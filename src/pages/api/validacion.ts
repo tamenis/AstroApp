@@ -41,18 +41,18 @@ export const POST: APIRoute = async ({ request }) => {
       }
       const result = await collection.insertOne(doc)
       console.log('Inserción realizada')
-      return new Response(JSON.stringify({}), {
-        status: 200,
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
     } catch (error) {
       if (error instanceof Error) {
         console.error(error.message)
       }
     } finally {
       await client.close()
+      return new Response(JSON.stringify({}), {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
     }
   }
   run().catch(console.dir)
