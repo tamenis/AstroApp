@@ -9,7 +9,5 @@ import netlify from "@astrojs/netlify";
 export default defineConfig({
   integrations: [tailwind(), preact()],
   output: "hybrid",
-  adapter: node({
-    mode:'standalone'
-  })
+  adapter: netlify()
 });
