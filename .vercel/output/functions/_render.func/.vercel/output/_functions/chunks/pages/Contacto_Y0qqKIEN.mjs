@@ -73,7 +73,7 @@ const $$Contacto = createComponent(async ($$result, $$props, $$slots) => {
     );
     let mensaje = validator.escape(data.get("mensaje") || "");
     if (!validator.isEmail(email) || validator.isEmpty(nombre)) {
-      return new Response(JSON.stringify({ error: "Email o nombre no válido" }), {
+      return new Response(JSON.stringify({ error: "Email o nombre no v\xE1lido" }), {
         status: 400
       });
     }
@@ -82,7 +82,7 @@ const $$Contacto = createComponent(async ($$result, $$props, $$slots) => {
       try {
         client.connect();
         await client.db("formUser").command({ ping: 1 });
-        console.log("Conexión realizada con la base de datos");
+        console.log("Conexi\xF3n realizada con la base de datos");
         const db = client.db("Contactos");
         const collection = db.collection("Formularios");
         const doc = {
@@ -95,7 +95,7 @@ const $$Contacto = createComponent(async ($$result, $$props, $$slots) => {
           Mensaje: `${mensaje}`
         };
         const result = await collection.insertOne(doc);
-        console.log("Inserción realizada");
+        console.log("Inserci\xF3n realizada");
       } catch (error) {
         if (error instanceof Error) {
           console.error(error.message);
@@ -132,6 +132,7 @@ Mensaje
 Enviar formulario
 </button> </div> </div> </form>` })}`;
 }, "C:/Users/tamenis/Documents/Uned/AstroApp/src/pages/Contacto.astro", void 0);
+
 const $$file = "C:/Users/tamenis/Documents/Uned/AstroApp/src/pages/Contacto.astro";
 const $$url = "/Contacto";
 
