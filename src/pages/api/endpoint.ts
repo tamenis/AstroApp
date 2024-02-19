@@ -10,7 +10,7 @@ export async function post(req, res) {
   try {
     // Accede a los datos del formulario desde req.body
     const { nombre, apellidos, email, telefono, disponibilidadDia, disponibilidadHora, mensaje } = req.body;
-
+    console.log("Petición procesada")
     // Realiza la validación de los datos del formulario
     const nombreEscapado = validator.escape(nombre || '');
     const apellidosEscapados = validator.escape(apellidos || '');
@@ -28,7 +28,7 @@ export async function post(req, res) {
     // Conecta con la base de datos MongoDB
     const client = new MongoClient(uri);
     await client.connect();
-
+    console.log("Conexión base de datos")
     // Accede a la base de datos y la colección
     const db = client.db('Contactos');
     const collection = db.collection('Formularios');
@@ -50,7 +50,7 @@ export async function post(req, res) {
 
     // Cierra la conexión con la base de datos
     await client.close();
-
+    console.log("cliente cerrado")
     // Envía una respuesta al cliente
     return res.status(200).json({ message: 'Formulario enviado correctamente' });
   } catch (error) {
