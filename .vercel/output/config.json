@@ -16,12 +16,52 @@
 			"dest": "_render"
 		},
 		{
+			"src": "^\\/404\\/?$",
+			"dest": "_render"
+		},
+		{
 			"src": "^\\/Contacto\\/?$",
 			"dest": "_render"
 		},
 		{
+			"src": "^\\/Contenido2\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/Contenido3\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/formularioExitoso\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/Galeria\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/Informacion\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/Personalizacion\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/QuienesSomos\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/Tecnicas\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/$",
+			"dest": "_render"
+		},
+		{
 			"src": "/.*",
-			"dest": "/404.html",
+			"dest": "_render",
 			"status": 404
 		}
 	]
