@@ -20,7 +20,15 @@
 			"dest": "_render"
 		},
 		{
+			"src": "^\\/api\\/endpoint\\/?$",
+			"dest": "_render"
+		},
+		{
 			"src": "^\\/Contacto\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/ContactoPrueba\\/?$",
 			"dest": "_render"
 		},
 		{

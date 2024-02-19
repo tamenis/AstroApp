@@ -2,8 +2,8 @@
 import { c as createAstro, d as createComponent, r as renderTemplate, f as renderComponent, m as maybeRenderHead } from '../astro_1jGxs8Bd.mjs';
 import 'kleur/colors';
 import 'html-escaper';
-import { $ as $$Layout } from './Contacto_7lW4WJ1r.mjs';
-import { $ as $$ParrafosImagenes, a as $$ArticulosRelacionados } from './Informacion_a0VBXHzC.mjs';
+import { $ as $$Layout } from './Contacto_dQcTEq1k.mjs';
+import { $ as $$ParrafosImagenes, a as $$ArticulosRelacionados } from './Informacion_NXr0Xy5V.mjs';
 /* empty css                             */
 
 const $$Astro = createAstro();

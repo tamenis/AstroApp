@@ -2,7 +2,7 @@
 import { c as createAstro, d as createComponent, r as renderTemplate, m as maybeRenderHead, e as addAttribute, h as createTransitionScope, f as renderComponent, g as renderHead, i as renderSlot } from '../astro_1jGxs8Bd.mjs';
 import 'kleur/colors';
 import 'html-escaper';
-import { $ as $$ViewTransitions, a as $$Header } from './404_xp2C5jQI.mjs';
+import { $ as $$ViewTransitions, a as $$Header } from './404_MO92UxQI.mjs';
 import 'clsx';
 /* empty css                             */
 import { MongoClient } from 'mongodb';
