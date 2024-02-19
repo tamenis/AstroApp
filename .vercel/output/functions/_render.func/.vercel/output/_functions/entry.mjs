@@ -1,5 +1,5 @@
 import { renderers } from './renderers.mjs';
-import { l as levels, g as getEventPrefix, L as Logger, A as AstroIntegrationLogger, manifest } from './manifest_0OuprMRk.mjs';
+import { l as levels, g as getEventPrefix, L as Logger, A as AstroIntegrationLogger, manifest } from './manifest_jbTiyL8I.mjs';
 import { e as appendForwardSlash, j as joinPaths, t as trimSlashes, s as slash, p as prependForwardSlash, r as removeTrailingForwardSlash, f as collapseDuplicateSlashes } from './chunks/astro/assets-service_6n0jwkH5.mjs';
 import { R as ROUTE_DATA_SYMBOL, A as AstroError, n as ResponseSentError, o as MiddlewareNoDataOrNextCalled, p as MiddlewareNotAResponse, G as GetStaticPathsRequired, q as InvalidGetStaticPathsReturn, t as InvalidGetStaticPathsEntry, u as GetStaticPathsExpectedParams, v as GetStaticPathsInvalidRouteParam, P as PageNumberParamNotFound, N as NoMatchingStaticPathFound, w as PrerenderDynamicEndpointPathCollide, x as LocalsNotAnObject, y as ASTRO_VERSION, C as ClientAddressNotAvailable, S as StaticClientAddressNotAvailable, z as renderEndpoint, B as ReservedSlotName, D as renderSlotToString, H as renderJSX, J as chunkToString, K as CantRenderPage, O as renderPage$1, Q as REROUTE_DIRECTIVE_HEADER } from './chunks/astro_1jGxs8Bd.mjs';
 import { serialize, parse } from 'cookie';
@@ -2200,25 +2200,25 @@ const createExports = (manifest, { middlewareSecret }) => {
 };
 
 const _page0 = () => import('./chunks/generic_JsDVJ0Uh.mjs');
-const _page1 = () => import('./chunks/404_SkGRcv4Q.mjs');
+const _page1 = () => import('./chunks/404_WXPlmk4-.mjs');
 const _page2 = () => import('./chunks/endpoint_8nULODMz.mjs');
-const _page3 = () => import('./chunks/Contacto_7-seLCni.mjs');
-const _page4 = () => import('./chunks/ContactoPrueba_6PX-xoML.mjs');
-const _page5 = () => import('./chunks/Contenido2_WM010VB6.mjs');
-const _page6 = () => import('./chunks/Contenido3_ydFHmpvm.mjs');
-const _page7 = () => import('./chunks/formularioExitoso_7LelXq2j.mjs');
-const _page8 = () => import('./chunks/Galeria_0-Vg0iYf.mjs');
-const _page9 = () => import('./chunks/Informacion_SsRj7tcD.mjs');
-const _page10 = () => import('./chunks/Personalizacion_nfd7HCWx.mjs');
-const _page11 = () => import('./chunks/QuienesSomos_AJqbPJwK.mjs');
-const _page12 = () => import('./chunks/Tecnicas__iUegYoM.mjs');
-const _page13 = () => import('./chunks/index_cUcDdZAk.mjs');
+const _page3 = () => import('./chunks/Contacto_Msz06Wxu.mjs');
+const _page4 = () => import('./chunks/Contacto2_PA9QKoFV.mjs');
+const _page5 = () => import('./chunks/Contenido2_BXg1R9Xn.mjs');
+const _page6 = () => import('./chunks/Contenido3_H07YQIMy.mjs');
+const _page7 = () => import('./chunks/formularioExitoso_EtBbV_t0.mjs');
+const _page8 = () => import('./chunks/Galeria__PtZBZV3.mjs');
+const _page9 = () => import('./chunks/Informacion_jeXW_0tv.mjs');
+const _page10 = () => import('./chunks/Personalizacion_7z_OWjxp.mjs');
+const _page11 = () => import('./chunks/QuienesSomos_m-y38TIl.mjs');
+const _page12 = () => import('./chunks/Tecnicas_eqxLwHz8.mjs');
+const _page13 = () => import('./chunks/index_qeEjjwde.mjs');
 const pageMap = new Map([
     ["node_modules/astro/dist/assets/endpoint/generic.js", _page0],
     ["src/pages/404.astro", _page1],
     ["src/pages/api/endpoint.ts", _page2],
     ["src/pages/Contacto.astro", _page3],
-    ["src/pages/ContactoPrueba.astro", _page4],
+    ["src/pages/Contacto2.astro", _page4],
     ["src/pages/Contenido2.astro", _page5],
     ["src/pages/Contenido3.astro", _page6],
     ["src/pages/formularioExitoso.astro", _page7],
@@ -2236,7 +2236,7 @@ const _manifest = Object.assign(manifest, {
     middleware: onRequest
 });
 const _args = {
-    "middlewareSecret": "9d675a9f-8ed7-40f2-9b4c-da13b26970eb"
+    "middlewareSecret": "178ccd31-80aa-4337-9f65-7ab5033bca33"
 };
 const _exports = createExports(_manifest, _args);
 const __astrojsSsrVirtualEntry = _exports.default;

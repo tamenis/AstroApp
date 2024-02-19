@@ -28,7 +28,7 @@
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/ContactoPrueba\\/?$",
+			"src": "^\\/Contacto2\\/?$",
 			"dest": "_render"
 		},
 		{

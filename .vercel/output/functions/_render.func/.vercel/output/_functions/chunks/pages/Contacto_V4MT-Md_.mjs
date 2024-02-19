@@ -1,9 +1,36 @@
 /* empty css                             */
-import { c as createAstro, d as createComponent, r as renderTemplate, f as renderComponent, m as maybeRenderHead, e as addAttribute } from '../astro_1jGxs8Bd.mjs';
+import { c as createAstro, d as createComponent, r as renderTemplate, m as maybeRenderHead, e as addAttribute, h as createTransitionScope, f as renderComponent, g as renderHead, i as renderSlot } from '../astro_1jGxs8Bd.mjs';
 import 'kleur/colors';
 import 'html-escaper';
-import { $ as $$Layout } from './Contacto_dQcTEq1k.mjs';
+import { $ as $$ViewTransitions, a as $$Header } from './404_eqtkJKUf.mjs';
+import 'clsx';
+/* empty css                             */
 import validator from 'validator';
+
+const $$Astro$3 = createAstro();
+const $$Button = createComponent(async ($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$3, $$props, $$slots);
+  Astro2.self = $$Button;
+  var { path } = Astro2.props;
+  const { url } = Astro2.props;
+  const { placeholder } = Astro2.props;
+  return renderTemplate`${maybeRenderHead()}<a${addAttribute(url, "href")} class="flex items-center p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-[#e0dddd] dark:hover:text-black dark:bg-[#18191d] group shadow-sm border-2 border-black dark:shadow-white dark:hover:shadow-black dark:border-white shadow-black" id="Boton"> <img${addAttribute(path, "src")} alt="Icono"> <span class="flex-1 ml-3 whitespace-nowrap">${placeholder}</span> </a>`;
+}, "C:/Users/tamenis/Documents/Uned/AstroApp/src/components/Button.astro", void 0);
+
+const $$Astro$2 = createAstro();
+const $$Sidebar = createComponent(async ($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$2, $$props, $$slots);
+  Astro2.self = $$Sidebar;
+  return renderTemplate`${maybeRenderHead()}<aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-60 h-screen pt-20 transition-transform -translate-x-full border-r sm:translate-x-0 dark:text-white" aria-label="Sidebar"${addAttribute(createTransitionScope($$result, "rwzhb66i"), "data-astro-transition-persist")}> <div class="h-full px-2 overflow-y-auto bg-slate-white border-r-2 border-black dark:bg-[#18191d] py-6 dark:border-white dark:border-2"> <ul class="space-y-4 font-medium mt-4"> <li> ${renderComponent($$result, "Button", $$Button, { "path": "/Inicio.svg", "url": "/", "placeholder": "Inicio" })} </li> <li> ${renderComponent($$result, "Button", $$Button, { "path": "/Informacion.svg", "url": "/Informacion", "placeholder": "Informacion" })} </li> <li> ${renderComponent($$result, "Button", $$Button, { "path": "/Galeria.svg", "url": "/Galeria", "placeholder": "Galeria" })} </li> <li> ${renderComponent($$result, "Button", $$Button, { "path": "/QuienesSomos.svg", "url": "/QuienesSomos", "placeholder": "Quienes Somos" })} </li> <li> ${renderComponent($$result, "Button", $$Button, { "placeholder": "Contacto", "url": "/Contacto", "path": "/Contacto.svg" })} </li> </ul> </div> </aside>`;
+}, "C:/Users/tamenis/Documents/Uned/AstroApp/src/components/Sidebar.astro", "self");
+
+const $$Astro$1 = createAstro();
+const $$Layout = createComponent(async ($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$1, $$props, $$slots);
+  Astro2.self = $$Layout;
+  const { title } = Astro2.props;
+  return renderTemplate`<html lang="es"> <head><meta charset="UTF-8"><meta name="description" content=""><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" type="image/svg+xml" href="/favicon.svg">${renderComponent($$result, "ViewTransitions", $$ViewTransitions, {})}<title>${title}</title>${renderHead()}</head> <body class="h-screen w-screen"> <div class="[grid-area:Header]"> ${renderComponent($$result, "Header", $$Header, {})} </div> <div id="sidebar" class="[grid-area:Sidebar]"> ${renderComponent($$result, "Sidebar", $$Sidebar, {})} </div> <div id="slot" class="[grid-area:Slot]"> ${renderSlot($$result, $$slots["content"])} </div>  </body> </html>`;
+}, "C:/Users/tamenis/Documents/Uned/AstroApp/src/layouts/Layout.astro", void 0);
 
 const $$Astro = createAstro();
 const prerender = false;
@@ -53,9 +80,9 @@ async function handleSubmit(event) {
     console.error("Error:", error);
   }
 }
-const $$ContactoPrueba = createComponent(async ($$result, $$props, $$slots) => {
+const $$Contacto = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
-  Astro2.self = $$ContactoPrueba;
+  Astro2.self = $$Contacto;
   const placeholder = {
     nombre: "Introduce tu nombre",
     apellidos: "Introduce tus apellidos",
@@ -82,9 +109,18 @@ Mensaje
 </label> <textarea class="flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 min-h-[100px]" id="message"${addAttribute(placeholder.mensaje, "placeholder")} name="mensaje"></textarea> </div> <button class="bg-black hover:bg-black/60 dark:bg-[#e0dddd] hover:dark:bg-[#e0dddd]/60 text-white dark:text-black inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
 Enviar formulario
 </button> </div> </div> </form>` })}`;
-}, "C:/Users/tamenis/Documents/Uned/AstroApp/src/pages/ContactoPrueba.astro", void 0);
+}, "C:/Users/tamenis/Documents/Uned/AstroApp/src/pages/Contacto.astro", void 0);
 
-const $$file = "C:/Users/tamenis/Documents/Uned/AstroApp/src/pages/ContactoPrueba.astro";
-const $$url = "/ContactoPrueba";
+const $$file = "C:/Users/tamenis/Documents/Uned/AstroApp/src/pages/Contacto.astro";
+const $$url = "/Contacto";
 
-export { $$ContactoPrueba as default, $$file as file, handleSubmit, prerender, $$url as url };
+const Contacto = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$Contacto,
+  file: $$file,
+  handleSubmit,
+  prerender,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+export { $$Layout as $, Contacto as C };

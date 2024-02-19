@@ -1,8 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import { Db, MongoClient} from 'mongodb'
 import validator from 'validator'
-const uri = "mongodb+srv://formUser:ybTuyL8ii7hy7HDj@ruart.hhrirls.mongodb.net/?retryWrites=true&w=majority"
 export const prerender = false
 
 const placeholder = {
@@ -12,67 +10,63 @@ const placeholder = {
   telefono: 'Introduce tu telefono',
   mensaje: 'Introduce tu mensaje'
 }
+export async function handleSubmit(event) {
+    event.preventDefault();
 
+    const formData = new FormData(event.target);
+    const nombre = formData.get('nombre');
+    const apellidos = formData.get('apellidos');
+    const email = formData.get('email');
+    const telefono = formData.get('telefono');
+    const disponibilidadDia = formData.get('disponibilidadDia');
+    const disponibilidadHora = formData.get('disponibilidadHora');
+    const mensaje = formData.get('mensaje');
 
-if(Astro.request.method === 'POST') {
-  const data = await Astro.request.formData()
-  let nombre = validator.escape(data.get('nombre') || '') // Sanitizar el nombre
-  let apellidos = validator.escape(data.get('apellidos') || '') // Sanitizar los apellidos
-  let email = validator.normalizeEmail(data.get('email') || '') // Sanitizar y normalizar el correo electrónico
-  let telefono = validator.escape(data.get('telefono') || '') // Sanitizar el teléfono
-  let disponibilidadDia = validator.escape(data.get('disponibilidadDia') || '') // Sanitizar la disponibilidad del día
-  let disponibilidadHora = validator.escape(
-    data.get('disponibilidadHora') || ''
-  ) // Sanitizar la disponibilidad de la hora
-  let mensaje = validator.escape(data.get('mensaje') || '') // Sanitizar el mensaje
+    const nombreEscapado = validator.escape(nombre || '');
+    const apellidosEscapados = validator.escape(apellidos || '');
+    const emailNormalizado = validator.normalizeEmail(email || '');
+    const telefonoEscapado = validator.escape(telefono || '');
+    const disponibilidadDiaEscapado = validator.escape(disponibilidadDia || '');
+    const disponibilidadHoraEscapado = validator.escape(disponibilidadHora || '');
+    const mensajeEscapado = validator.escape(mensaje || '');
 
-  if (!validator.isEmail(email) || validator.isEmpty(nombre)) {
-    return new Response(JSON.stringify({ error: 'Email o nombre no válido' }), {
-      status: 400
-    })
-  }
+    if (!validator.isEmail(emailNormalizado) || validator.isEmpty(nombreEscapado)) {
+      console.error('Email o nombre no válido');
+      return;
+    }
 
-  const client = new MongoClient(uri)
-  async function run() {
     try {
-      client.connect()
-      await client.db("formUser").command({ ping: 1 })
-      console.log('Conexión realizada con la base de datos')
-      const db = client.db('Contactos')
-      const collection = db.collection('Formularios')
-      const doc = {
-        Nombre: `${nombre}`,
-        Apellidos: `${apellidos}`,
-        Correo: `${email}`,
-        Telefono: `${telefono}`,
-        DisponibilidadDia: `${disponibilidadDia}`,
-        DisponibilidadHora: `${disponibilidadHora}`,
-        Mensaje: `${mensaje}`
-      }
-      const result = await collection.insertOne(doc)
-      console.log('Inserción realizada')
-    } catch (error) {
-      if (error instanceof Error) {
-        console.error(error.message)
-      }
-    } finally {
-      await client.close()
-      return new Response(JSON.stringify({}), {
-        status: 200,
+      const response = await fetch('/api/endpoint', {
+        method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
-        }
-      })
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          nombre: nombreEscapado,
+          apellidos: apellidosEscapados,
+          email: emailNormalizado,
+          telefono: telefonoEscapado,
+          disponibilidadDia: disponibilidadDiaEscapado,
+          disponibilidadHora: disponibilidadHoraEscapado,
+          mensaje: mensajeEscapado,
+        }),
+      });
+
+      if (response.ok) {
+        console.log('Formulario enviado con éxito');
+      } else {
+        console.error('Error al enviar el formulario');
+      }
+    } catch (error) {
+      console.error('Error:', error);
     }
   }
-  run().catch(console.dir)
-}
 
 ---
 
 <Layout title='Contacto'>
   <form
-  method="post"
+  onsubmit="handleSubmit"
   slot='content'
   class='space-y-8 mt-32 lg:mr-3 lg:ml-6 lg:mt-20 xl:mr-16 mb-4 2xl:mt-20 dark:bg-[#003e74] lg:rounded-xl p-4 h-screen lg:h-auto'
 >
@@ -220,3 +214,4 @@ if(Astro.request.method === 'POST') {
   </div>
 </form>
 </Layout>
+
