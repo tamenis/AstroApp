@@ -4,16 +4,21 @@ import validator from 'validator'
 
 const link ="/formularioExitoso"
 
-const usuarioDB = process.env.USUARIO_DB
-const baseDatos = process.env.BASE_DATOS
-const coleccion = process.env.COLECCION
-const uri = process.env.MONGODB_URI
+const usuarioDB = ( process.env.USUARIO_DB || import.meta.env.USUARIO_DB )
+const baseDatos = (process.env.BASE_DATOS || import.meta.env.BASE_DATOS)
+const coleccion = (process.env.COLECCION || import.meta.env.COLECCION)
+const uri = (process.env.MONGODB_URI||import.meta.env.MONGODB_URI)
 
 
 //const usuarioDB = import.meta.env.USUARIO_DB
 //const baseDatos = import.meta.env.BASE_DATOS
 //const coleccion = import.meta.env.COLECCION
 //const uri = import.meta.env.MONGODB_URI
+export const GET:APIRoute = async ({request,redirect}) => {
+  return new Response(JSON.stringify({ error: 'Email o nombre no válido' }), {
+    status: 400
+  })
+}
 
 export const POST:APIRoute = async ({request,redirect}) => {
   const data = await request.formData(); // Here's the data sent by the form
