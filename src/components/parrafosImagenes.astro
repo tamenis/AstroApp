@@ -5,27 +5,28 @@ interface Props {
   img1: string
   img2: string
 }
-const {img1} = Astro.props
-const {img2} = Astro.props
-const {texto} = Astro.props
-const {titulo} = Astro.props
+const { img1 } = Astro.props
+const { img2 } = Astro.props
+const { texto } = Astro.props
+const { titulo } = Astro.props
 ---
-<p class="text-[#18191d] dark:text-[#e0dddd]">
-    <span class="font-bold">{titulo}</span>{texto}
-  </p>
-  <div class="grid grid-flow-col my-4">
-    <img
+
+<p class='text-[#18191d] dark:text-[#e0dddd]'>
+  <span class='font-bold'>{titulo}</span>{texto}
+</p>
+<div class='grid grid-flow-col my-4'>
+  <img
     src={img1}
-    alt="Blog post image"
-    width="400"
-    height="200"
-    class="aspect-video object-cover"
+    alt='Blog post image'
+    width='400'
+    height='200'
+    class='aspect-video object-cover'
   />
   <img
-  src={img2}
-  alt="Blog post image"
-  width="400"
-  height="200"
-  class="aspect-video object-cover"
-/>
-  </div>
+    src={img2}
+    alt='Blog post image'
+    width='400'
+    height='200'
+    class='aspect-video object-cover'
+  />
+</div>

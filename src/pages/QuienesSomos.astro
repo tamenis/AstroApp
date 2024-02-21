@@ -9,51 +9,95 @@ import ArticulosRelacionados from '../components/articulosRelacionados.astro'
     slot='content'
     class='flex items-center justify-center max-w-screen xl:mt-0 mt-40 sm:mb-4 lg:mb-4 mx-4 inset-0 bg-[#e0dddd] dark:bg-[#18191d] relative'
   >
-  <div class="flex flex-col bg-[#e0dddd] dark:bg-[#18191d] lg:mt-8">
-    <main class="flex flex-col md:flex-row sm:flex-row flex-1 overflow-hidden">
-      <article class="prose prose-gray mx-auto p-6 max-w-screen md:w-3/4 dark:prose-invert">
-        <h1 class="text-4xl font-extrabold tracking-tight lg:text-5xl lg:leading-[3.5rem] dark:text-white">
-          Personalización
-        </h1>
-        <p class="text-[#18191d] dark:text-[#e0dddd]">En ruART hacemos, con la construcción industrializada, relidad los proyectos constructivos de cualquier tipología y uso.</p>
-        <br/>
-        <ParrafosImagenes titulo='Residencial: ' texto='Conformando cualquier tamaño o tipo de edificio residencial, individual o colectivo. Anexos a construcciones ya existentes, ampliaciones o edificios de servicios en viviendas ya construidas ( gimnasios, apartamentos de invitados, garajes, trasteros,...).' img1='./src/assets/galeria/img-1.jpg' img2='./src/assets/galeria/img-2.jpg'/>
-        <ParrafosImagenes titulo='Dotacional: ' texto='Con la construcción individualizada podemos abarcar todo tipo de soluciones para servicios púlblicos, (edificios para parques, colegios, salas de cultura, exposiciones), adaptamos la construcción al edificio demandado.' img1='./src/assets/galeria/img-3.jpg' img2='./src/assets/galeria/img-4.jpg'/>
-        <ParrafosImagenes titulo='Comercial: ' texto='Podemos fabricar edificios con uso comercial, tales como bares, restaurantes, hoteles, apartamentos vacacionales...' img1='./src/assets/galeria/img-5.jpg' img2='./src/assets/galeria/img-6.jpg'/>
-        <p class="text-[#18191d] dark:text-[#e0dddd]">
-          En definitiva, desde ruART, partiendo desde tu idea y con la colaboración de nuestro gabinete técnico formado por ARQUITECTOS e INGENIEROS de reconocido valor profesional, podemos dar forma al proyecto con construcción industrializada y modular, partiendo de nuestras instalaciones para cualquier punto del globo.
-        </p>
-      </article>
-      <aside class="w-full h-screen-2xl md:w-1/5 p-6 border-l border-black dark:border-white">
-        <div class="mb-6">
-          <h2 class="text-lg font-semibold dark:text-white">Articulos relacionados</h2>
-          <div class="mt-4 space-y-4">
-            <ArticulosRelacionados nombre='Personalización' descripcion='Breve descripcion del articulo' alt='' imagen='./src/assets/galeria/img-7.jpg' enlace='/Personalizacion'/>
-            <ArticulosRelacionados nombre='Nombre articulo' descripcion='Breve descripcion del articulo' alt='' imagen='./src/assets/galeria/img-8.jpg' enlace='/Informacion'/>
-            <ArticulosRelacionados nombre='Nombre articulo' descripcion='Breve descripcion del articulo' alt='' imagen='./src/assets/galeria/img-10.jpg' enlace='/QuienesSomos'/>
+    <div class='flex flex-col bg-[#e0dddd] dark:bg-[#18191d] lg:mt-8'>
+      <main
+        class='flex flex-col md:flex-row sm:flex-row flex-1 overflow-hidden'
+      >
+        <article
+          class='prose prose-gray mx-auto p-6 max-w-screen md:w-3/4 dark:prose-invert'
+        >
+          <h1
+            class='text-4xl font-extrabold tracking-tight lg:text-5xl lg:leading-[3.5rem] dark:text-white'
+          >
+            Personalización
+          </h1>
+          <p class='text-[#18191d] dark:text-[#e0dddd]'>
+            En ruART hacemos, con la construcción industrializada, relidad los
+            proyectos constructivos de cualquier tipología y uso.
+          </p>
+          <br />
+          <ParrafosImagenes
+            titulo='Residencial: '
+            texto='Conformando cualquier tamaño o tipo de edificio residencial, individual o colectivo. Anexos a construcciones ya existentes, ampliaciones o edificios de servicios en viviendas ya construidas ( gimnasios, apartamentos de invitados, garajes, trasteros,...).'
+            img1='./src/assets/galeria/img-1.jpg'
+            img2='./src/assets/galeria/img-2.jpg'
+          />
+          <ParrafosImagenes
+            titulo='Dotacional: '
+            texto='Con la construcción individualizada podemos abarcar todo tipo de soluciones para servicios púlblicos, (edificios para parques, colegios, salas de cultura, exposiciones), adaptamos la construcción al edificio demandado.'
+            img1='./src/assets/galeria/img-3.jpg'
+            img2='./src/assets/galeria/img-4.jpg'
+          />
+          <ParrafosImagenes
+            titulo='Comercial: '
+            texto='Podemos fabricar edificios con uso comercial, tales como bares, restaurantes, hoteles, apartamentos vacacionales...'
+            img1='./src/assets/galeria/img-5.jpg'
+            img2='./src/assets/galeria/img-6.jpg'
+          />
+          <p class='text-[#18191d] dark:text-[#e0dddd]'>
+            En definitiva, desde ruART, partiendo desde tu idea y con la
+            colaboración de nuestro gabinete técnico formado por ARQUITECTOS e
+            INGENIEROS de reconocido valor profesional, podemos dar forma al
+            proyecto con construcción industrializada y modular, partiendo de
+            nuestras instalaciones para cualquier punto del globo.
+          </p>
+        </article>
+        <aside
+          class='w-full h-screen-2xl md:w-1/5 p-6 border-l border-black dark:border-white'
+        >
+          <div class='mb-6'>
+            <h2 class='text-lg font-semibold dark:text-white'>
+              Articulos relacionados
+            </h2>
+            <div class='mt-4 space-y-4'>
+              <ArticulosRelacionados
+                nombre='Personalización'
+                descripcion='Breve descripcion del articulo'
+                alt=''
+                imagen='./src/assets/galeria/img-7.jpg'
+                enlace='/Personalizacion'
+              />
+              <ArticulosRelacionados
+                nombre='Nombre articulo'
+                descripcion='Breve descripcion del articulo'
+                alt=''
+                imagen='./src/assets/galeria/img-8.jpg'
+                enlace='/Informacion'
+              />
+              <ArticulosRelacionados
+                nombre='Nombre articulo'
+                descripcion='Breve descripcion del articulo'
+                alt=''
+                imagen='./src/assets/galeria/img-10.jpg'
+                enlace='/QuienesSomos'
+              />
             </div>
           </div>
-        </div>        
-      </aside>
-    </main>
-  </div>
-
+        </aside>
+      </main>
+    </div>
   </article>
 </Layout>
 
 <style>
   @media (width<1480px) {
     aside {
-    display: none;
+      display: none;
     }
-}
-@media (width:1280px) {
+  }
+  @media (width: 1280px) {
     .xl\:mt-0 {
-        margin-top: 50px;
+      margin-top: 50px;
     }
-}
+  }
 </style>
-
-
-
-
