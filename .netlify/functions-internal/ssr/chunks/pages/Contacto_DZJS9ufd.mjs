@@ -2,10 +2,9 @@
 import { c as createAstro, d as createComponent, r as renderTemplate, m as maybeRenderHead, e as addAttribute, h as createTransitionScope, f as renderComponent, g as renderHead, i as renderSlot } from '../astro_TmZg0bPE.mjs';
 import 'kleur/colors';
 import 'html-escaper';
-import { $ as $$ViewTransitions, a as $$Header } from './404_1ay9Kmp_.mjs';
+import { $ as $$ViewTransitions, a as $$Header } from './404_IcouIGzi.mjs';
 import 'clsx';
 /* empty css                             */
-import { MongoClient } from 'mongodb';
 import validator from 'validator';
 
 const $$Astro$3 = createAstro();
@@ -38,10 +37,6 @@ const prerender = false;
 const $$Contacto = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$Contacto;
-  const usuarioDB = "formUser";
-  const baseDatos = "Contactos";
-  const coleccion = "Formularios";
-  const uri = "mongodb+srv://formUser:ybTuyL8ii7hy7HDj@ruart.hhrirls.mongodb.net/?retryWrites=true&w=majority";
   const placeholder = {
     nombre: "Introduce tu nombre",
     apellidos: "Introduce tus apellidos",
@@ -52,57 +47,16 @@ const $$Contacto = createComponent(async ($$result, $$props, $$slots) => {
   if (Astro2.request.method === "POST") {
     const data = await Astro2.request.formData();
     let nombre = validator.escape(data.get("nombre") || "");
-    let apellidos = validator.escape(data.get("apellidos") || "");
     let email = validator.normalizeEmail(data.get("email") || "");
-    let telefono = validator.escape(data.get("telefono") || "");
-    let disponibilidadDia = validator.escape(data.get("disponibilidadDia") || "");
-    let disponibilidadHora = validator.escape(
-      data.get("disponibilidadHora") || ""
-    );
-    let mensaje = validator.escape(data.get("mensaje") || "");
     if (!validator.isEmail(email) || validator.isEmpty(nombre)) {
-      return new Response(JSON.stringify({ error: "Email o nombre no válido" }), {
+      placeholder.nombre = "Introduce un nombre v\xE1lido";
+      placeholder.email = "Introduce un email v\xE1lido";
+      return new Response(JSON.stringify({ error: "Email o nombre no v\xE1lido" }), {
         status: 400
       });
     }
-    const client = new MongoClient(uri);
-    async function run() {
-      try {
-        client.connect();
-        await client.db(usuarioDB).command({ ping: 1 });
-        console.log("Conexión realizada con la base de datos");
-        const db = client.db(baseDatos);
-        const collection = db.collection(coleccion);
-        const doc = {
-          Nombre: `${nombre}`,
-          Apellidos: `${apellidos}`,
-          Correo: `${email}`,
-          Telefono: `${telefono}`,
-          DisponibilidadDia: `${disponibilidadDia}`,
-          DisponibilidadHora: `${disponibilidadHora}`,
-          Mensaje: `${mensaje}`
-        };
-        const result = await collection.insertOne(doc);
-        console.log("Inserción realizada");
-      } catch (error) {
-        if (error instanceof Error) {
-          console.error(error.message);
-        }
-      } finally {
-        await client.close();
-        return new Response(JSON.stringify({}), {
-          status: 201,
-          headers: {
-            "Content-Type": "application/json"
-          }
-        });
-      }
-    }
-    run().catch(console.dir);
   }
-  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Contacto" }, { "content": ($$result2) => renderTemplate`${maybeRenderHead()}<form method="post" class="space-y-8 mt-32 lg:mr-3 lg:ml-6 lg:mt-20 xl:mr-16 mb-4 2xl:mt-20 dark:bg-[#003e74] lg:rounded-xl p-4 h-screen lg:h-auto"> <div class="space-y-2"> <h2 class="text-3xl font-bold dark:text-white">
-Formulario de contacto
-</h2> <p class="dark:text-white">
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Contacto" }, { "content": ($$result2) => renderTemplate`${maybeRenderHead()}<form method="post" action="/api/formulario" class="space-y-8 mt-32 lg:mr-3 lg:ml-6 lg:mt-20 xl:mr-16 mb-4 2xl:mt-20 dark:bg-[#003e74] lg:rounded-xl p-4 h-screen lg:h-auto"> <div class="space-y-2"> <h2 class="text-3xl font-bold dark:text-white">Formulario de contacto</h2> <p class="dark:text-white">
 Rellena el formulario y nos pondremos en contacto contigo
 </p> </div> <div class="space-y-4"> <div class="grid grid-cols-2 gap-4"> <div class="space-y-2"> <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:text-white" for="first-name">
 Nombre
@@ -120,6 +74,7 @@ Mensaje
 Enviar formulario
 </button> </div> </div> </form>` })}`;
 }, "C:/Users/tamenis/Documents/Uned/AstroApp/src/pages/Contacto.astro", void 0);
+
 const $$file = "C:/Users/tamenis/Documents/Uned/AstroApp/src/pages/Contacto.astro";
 const $$url = "/Contacto";
 

@@ -6,11 +6,6 @@ const usuarioDB = process.env.USUARIO_DB || "formUser";
 const baseDatos = process.env.BASE_DATOS || "Contactos";
 const coleccion = process.env.COLECCION || "Formularios";
 const uri = process.env.MONGODB_URI || "mongodb+srv://formUser:ybTuyL8ii7hy7HDj@ruart.hhrirls.mongodb.net/?retryWrites=true&w=majority";
-const GET = async ({ request, redirect }) => {
-  return new Response(JSON.stringify({ error: "Email o nombre no válido" }), {
-    status: 400
-  });
-};
 const POST = async ({ request, redirect }) => {
   const data = await request.formData();
   let nombre = validator.escape(data.get("nombre") || "");
@@ -22,11 +17,6 @@ const POST = async ({ request, redirect }) => {
     data.get("disponibilidadHora") || ""
   );
   let mensaje = validator.escape(data.get("mensaje") || "");
-  if (!validator.isEmail(email) || validator.isEmpty(nombre)) {
-    return new Response(JSON.stringify({ error: "Email o nombre no válido" }), {
-      status: 400
-    });
-  }
   const client = new MongoClient(uri);
   console.log("Cliente base de datos");
   const doc = {
@@ -65,4 +55,4 @@ const POST = async ({ request, redirect }) => {
   return redirect(link, 307);
 };
 
-export { GET, POST };
+export { POST };
