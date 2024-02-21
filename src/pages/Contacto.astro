@@ -3,10 +3,10 @@ import Layout from '../layouts/Layout.astro'
 import { Db, MongoClient} from 'mongodb'
 import validator from 'validator'
 
-const usuarioDB = import.meta.env.USUARIO_DB
-const baseDatos = import.meta.env.BASE_DATOS
-const coleccion = import.meta.env.COLECCION
-const uri = import.meta.env.MONGODB_URI
+const usuarioDB = process.env.USUARIO_DB
+const baseDatos = process.env.BASE_DATOS
+const coleccion = process.env.COLECCION
+const uri = process.env.MONGODB_URI
 
 export const prerender = false
 
