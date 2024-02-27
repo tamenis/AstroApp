@@ -2,7 +2,7 @@
 import { c as createAstro, d as createComponent, r as renderTemplate, f as renderComponent, m as maybeRenderHead } from '../astro_TmZg0bPE.mjs';
 import 'kleur/colors';
 import 'html-escaper';
-import { $ as $$Layout } from './Contacto_DZJS9ufd.mjs';
+import { $ as $$Layout } from './Contacto_rIeGRr0R.mjs';
 
 const $$Astro = createAstro();
 const $$Contenido3 = createComponent(async ($$result, $$props, $$slots) => {

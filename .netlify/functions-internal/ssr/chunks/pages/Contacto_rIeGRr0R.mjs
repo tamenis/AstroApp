@@ -2,10 +2,9 @@
 import { c as createAstro, d as createComponent, r as renderTemplate, m as maybeRenderHead, e as addAttribute, h as createTransitionScope, f as renderComponent, g as renderHead, i as renderSlot } from '../astro_TmZg0bPE.mjs';
 import 'kleur/colors';
 import 'html-escaper';
-import { $ as $$ViewTransitions, a as $$Header } from './404_IcouIGzi.mjs';
+import { $ as $$ViewTransitions, a as $$Header } from './404_a8bejn4U.mjs';
 import 'clsx';
 /* empty css                             */
-import validator from 'validator';
 
 const $$Astro$3 = createAstro();
 const $$Button = createComponent(async ($$result, $$props, $$slots) => {
@@ -33,7 +32,6 @@ const $$Layout = createComponent(async ($$result, $$props, $$slots) => {
 }, "C:/Users/tamenis/Documents/Uned/AstroApp/src/layouts/Layout.astro", void 0);
 
 const $$Astro = createAstro();
-const prerender = false;
 const $$Contacto = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$Contacto;
@@ -44,18 +42,6 @@ const $$Contacto = createComponent(async ($$result, $$props, $$slots) => {
     telefono: "Introduce tu telefono",
     mensaje: "Introduce tu mensaje"
   };
-  if (Astro2.request.method === "POST") {
-    const data = await Astro2.request.formData();
-    let nombre = validator.escape(data.get("nombre") || "");
-    let email = validator.normalizeEmail(data.get("email") || "");
-    if (!validator.isEmail(email) || validator.isEmpty(nombre)) {
-      placeholder.nombre = "Introduce un nombre v\xE1lido";
-      placeholder.email = "Introduce un email v\xE1lido";
-      return new Response(JSON.stringify({ error: "Email o nombre no v\xE1lido" }), {
-        status: 400
-      });
-    }
-  }
   return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Contacto" }, { "content": ($$result2) => renderTemplate`${maybeRenderHead()}<form method="post" action="/api/formulario" class="space-y-8 mt-32 lg:mr-3 lg:ml-6 lg:mt-20 xl:mr-16 mb-4 2xl:mt-20 dark:bg-[#003e74] lg:rounded-xl p-4 h-screen lg:h-auto"> <div class="space-y-2"> <h2 class="text-3xl font-bold dark:text-white">Formulario de contacto</h2> <p class="dark:text-white">
 Rellena el formulario y nos pondremos en contacto contigo
 </p> </div> <div class="space-y-4"> <div class="grid grid-cols-2 gap-4"> <div class="space-y-2"> <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:text-white" for="first-name">
@@ -82,7 +68,6 @@ const Contacto = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   default: $$Contacto,
   file: $$file,
-  prerender,
   url: $$url
 }, Symbol.toStringTag, { value: 'Module' }));
 

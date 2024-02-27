@@ -1,21 +1,21 @@
 import { renderers } from './renderers.mjs';
-import { manifest } from './manifest_Tv1G_5rU.mjs';
+import { manifest } from './manifest_x_m3m2Qg.mjs';
 import * as serverEntrypointModule from '@astrojs/netlify/ssr-function.js';
 import { onRequest } from './_noop-middleware.mjs';
 
 const _page0 = () => import('./chunks/generic_qJAuS_NF.mjs');
-const _page1 = () => import('./chunks/404_fcOCofxJ.mjs');
-const _page2 = () => import('./chunks/formulario_hJwCnQwJ.mjs');
-const _page3 = () => import('./chunks/Contacto_PfbgkQsC.mjs');
-const _page4 = () => import('./chunks/Contenido2_V3jfa5pq.mjs');
-const _page5 = () => import('./chunks/Contenido3_KJplXxJX.mjs');
-const _page6 = () => import('./chunks/formularioExitoso_0RXoejTK.mjs');
-const _page7 = () => import('./chunks/Galeria_5ElfP0LJ.mjs');
-const _page8 = () => import('./chunks/Informacion_dJiGibGa.mjs');
-const _page9 = () => import('./chunks/Personalizacion_ulreef4D.mjs');
-const _page10 = () => import('./chunks/QuienesSomos_mEYtLPGT.mjs');
-const _page11 = () => import('./chunks/Tecnicas_EdX3ycMe.mjs');
-const _page12 = () => import('./chunks/index_kJ6GfkW5.mjs');
+const _page1 = () => import('./chunks/404_ZJSiUWDf.mjs');
+const _page2 = () => import('./chunks/formulario_3sx0jxyq.mjs');
+const _page3 = () => import('./chunks/Contacto_Q7bg_R3M.mjs');
+const _page4 = () => import('./chunks/Contenido2_AM48bAGn.mjs');
+const _page5 = () => import('./chunks/Contenido3_a98WSseN.mjs');
+const _page6 = () => import('./chunks/formularioExitoso_95qS_5az.mjs');
+const _page7 = () => import('./chunks/Galeria_OvfysYlh.mjs');
+const _page8 = () => import('./chunks/Informacion_LQPSEHye.mjs');
+const _page9 = () => import('./chunks/Personalizacion_EcjzCLQy.mjs');
+const _page10 = () => import('./chunks/QuienesSomos_nZAbXPH5.mjs');
+const _page11 = () => import('./chunks/Tecnicas_11Nx9JS-.mjs');
+const _page12 = () => import('./chunks/index_Ewomed4x.mjs');
 const pageMap = new Map([
     ["node_modules/astro/dist/assets/endpoint/generic.js", _page0],
     ["src/pages/404.astro", _page1],
@@ -38,7 +38,7 @@ const _manifest = Object.assign(manifest, {
     middleware: onRequest
 });
 const _args = {
-    "middlewareSecret": "c6632451-d1f3-45f2-8dcf-f65f37913d4c"
+    "middlewareSecret": "624f6c25-b790-4acf-8087-7ee6661bc354"
 };
 const _exports = serverEntrypointModule.createExports(_manifest, _args);
 const __astrojsSsrVirtualEntry = _exports.default;

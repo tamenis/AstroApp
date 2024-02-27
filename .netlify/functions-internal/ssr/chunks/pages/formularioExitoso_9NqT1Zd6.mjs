@@ -2,7 +2,7 @@
 import { c as createAstro, d as createComponent, r as renderTemplate, f as renderComponent, g as renderHead } from '../astro_TmZg0bPE.mjs';
 import 'kleur/colors';
 import 'html-escaper';
-import { $ as $$ViewTransitions, a as $$Header } from './404_IcouIGzi.mjs';
+import { $ as $$ViewTransitions, a as $$Header } from './404_a8bejn4U.mjs';
 /* empty css                                      */
 
 const $$Astro = createAstro();
