@@ -1,11 +1,11 @@
 import { renderers } from './renderers.mjs';
-import { manifest } from './manifest_x8vS3hFd.mjs';
+import { manifest } from './manifest_Tv1G_5rU.mjs';
 import * as serverEntrypointModule from '@astrojs/netlify/ssr-function.js';
 import { onRequest } from './_noop-middleware.mjs';
 
 const _page0 = () => import('./chunks/generic_qJAuS_NF.mjs');
 const _page1 = () => import('./chunks/404_fcOCofxJ.mjs');
-const _page2 = () => import('./chunks/formulario_Dqe1hoXZ.mjs');
+const _page2 = () => import('./chunks/formulario_hJwCnQwJ.mjs');
 const _page3 = () => import('./chunks/Contacto_PfbgkQsC.mjs');
 const _page4 = () => import('./chunks/Contenido2_V3jfa5pq.mjs');
 const _page5 = () => import('./chunks/Contenido3_KJplXxJX.mjs');
@@ -38,7 +38,7 @@ const _manifest = Object.assign(manifest, {
     middleware: onRequest
 });
 const _args = {
-    "middlewareSecret": "2a219f34-6ec0-4415-9f37-b951b12f8d34"
+    "middlewareSecret": "c6632451-d1f3-45f2-8dcf-f65f37913d4c"
 };
 const _exports = serverEntrypointModule.createExports(_manifest, _args);
 const __astrojsSsrVirtualEntry = _exports.default;

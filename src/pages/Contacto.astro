@@ -1,7 +1,5 @@
 ---
-export const prerender = false
 import Layout from '../layouts/Layout.astro'
-import validator from 'validator'
 
 const placeholder = {
   nombre: 'Introduce tu nombre',
@@ -11,18 +9,6 @@ const placeholder = {
   mensaje: 'Introduce tu mensaje'
 }
 
-if (Astro.request.method === 'POST') {
-  const data = await Astro.request.formData()
-  let nombre = validator.escape(data.get('nombre') || '') // Sanitizar el nombre
-  let email = validator.normalizeEmail(data.get('email') || '') // Sanitizar y normalizar el correo electrónico
-  if (!validator.isEmail(email) || validator.isEmpty(nombre)) {
-    placeholder.nombre = 'Introduce un nombre válido'
-    placeholder.email = 'Introduce un email válido'
-    return new Response(JSON.stringify({ error: 'Email o nombre no válido' }), {
-      status: 400
-    })
-  }
-}
 ---
 
 <Layout title='Contacto'>

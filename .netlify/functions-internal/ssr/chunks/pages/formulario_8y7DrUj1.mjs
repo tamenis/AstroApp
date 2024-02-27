@@ -6,6 +6,9 @@ const usuarioDB = process.env.USUARIO_DB || "formUser";
 const baseDatos = process.env.BASE_DATOS || "Contactos";
 const coleccion = process.env.COLECCION || "Formularios";
 const uri = process.env.MONGODB_URI || "mongodb+srv://formUser:ybTuyL8ii7hy7HDj@ruart.hhrirls.mongodb.net/?retryWrites=true&w=majority";
+const GET = async ({ request, redirect }) => {
+  return redirect("/Contacto", 307);
+};
 const POST = async ({ request, redirect }) => {
   const data = await request.formData();
   let nombre = validator.escape(data.get("nombre") || "");
@@ -55,4 +58,4 @@ const POST = async ({ request, redirect }) => {
   return redirect(link, 307);
 };
 
-export { POST };
+export { GET, POST };
