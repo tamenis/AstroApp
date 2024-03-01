@@ -23,9 +23,7 @@ export const POST: APIRoute = async ({ request, redirect }) => {
   let disponibilidadHora = validator.escape(data.get('disponibilidadHora') || '') // Sanitizar la disponibilidad de la hora
   let mensaje = validator.escape(data.get('mensaje') || '') // Sanitizar el mensaje
   if(!validator.isEmail(email) || validator.isEmpty(nombre)) {
-    return new Response(JSON.stringify({error:'Email o nombre no válido'}), {
-      status: 400,
-    })
+    return redirect(link,307)
   }else{
     const client = new MongoClient(uri)
     console.log('Cliente base de datos')
