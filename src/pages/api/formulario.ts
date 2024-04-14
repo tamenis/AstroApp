@@ -9,7 +9,7 @@ const baseDatos = (process.env.BASE_DATOS || import.meta.env.BASE_DATOS)
 const coleccion = (process.env.COLECCION || import.meta.env.COLECCION)
 const uri = (process.env.MONGODB_URI || import.meta.env.MONGODB_URI)
 
-export const GET: APIRoute = async ({ request, redirect }) => {
+export const GET: APIRoute = async ({ redirect }) => {
   return redirect('/Contacto', 307)
 }
 
