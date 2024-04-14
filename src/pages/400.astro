@@ -1,0 +1,72 @@
+---
+import Header from '../components/Header.astro'
+import { ViewTransitions } from 'astro:transitions'
+---
+
+<!doctype html>
+<html lang='es'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='description' content='' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <ViewTransitions />
+    <title>Error 400</title>
+  </head>
+  <body>
+    <Header />
+    <article class='flex items-center justify-center max-h-screen mt-32'>
+      <div class='p-2 rounded-md flex items-center justify-center w-full'>
+        <div class='p-8 rounded-md relative w-full'>
+          <div class='flex flex-col items-center justify-center'>
+            <div class='space-y-4'>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                width='124'
+                height='124'
+                viewBox='0 0 24 24'
+                fill='none'
+                stroke='#a6311d'
+                stroke-width='2'
+                stroke-linecap='round'
+                stroke-linejoin='round'
+              >
+                <path
+                  d='m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z'
+                ></path>
+                <path d='M12 9v4'></path>
+                <path d='M12 17h.01'></path>
+              </svg>
+              <h1
+                class='lg:text-7xl text-4xl font-bold text-black dark:text-white'
+              >
+                Petición erronea al servidor
+              </h1>
+              <p
+                class='lg:text-3xl text-xl text-black dark:text-white justify-center'
+              >
+                Error 400
+              </p>
+              <div class='mt-6'>
+                <a
+                  class='bg-[#a6311d] inline-flex p-2 items-center justify-center h-10 font-medium rounded-md'
+                  href='/'
+                >
+                  Página principal
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+    <style>
+      html {
+        font-family: monospace, system-ui;
+        background: #e0dddd;
+        @apply dark:bg-[#18191d];
+        overflow-x: hidden;
+      }
+    </style>
+  </body>
+</html>
