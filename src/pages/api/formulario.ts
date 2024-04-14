@@ -4,10 +4,10 @@ import validator from 'validator'
 
 const link = '/formularioExitoso'
 
-const usuarioDB = (process.env.USUARIO_DB || import.meta.env.USUARIO_DB)
-const baseDatos = (process.env.BASE_DATOS || import.meta.env.BASE_DATOS)
-const coleccion = (process.env.COLECCION || import.meta.env.COLECCION)
-const uri = (process.env.MONGODB_URI || import.meta.env.MONGODB_URI)
+const usuarioDB = process.env.USUARIO_DB || import.meta.env.USUARIO_DB
+const baseDatos = process.env.BASE_DATOS || import.meta.env.BASE_DATOS
+const coleccion = process.env.COLECCION || import.meta.env.COLECCION
+const uri = process.env.MONGODB_URI || import.meta.env.MONGODB_URI
 
 export const GET: APIRoute = async ({ redirect }) => {
   return redirect('/Contacto', 307)
@@ -20,11 +20,13 @@ export const POST: APIRoute = async ({ request, redirect }) => {
   let email = validator.normalizeEmail(data.get('email') || '') // Sanitizar y normalizar el correo electrónico
   let telefono = validator.escape(data.get('telefono') || '') // Sanitizar el teléfono
   let disponibilidadDia = validator.escape(data.get('disponibilidadDia') || '') // Sanitizar la disponibilidad del día
-  let disponibilidadHora = validator.escape(data.get('disponibilidadHora') || '') // Sanitizar la disponibilidad de la hora
+  let disponibilidadHora = validator.escape(
+    data.get('disponibilidadHora') || ''
+  ) // Sanitizar la disponibilidad de la hora
   let mensaje = validator.escape(data.get('mensaje') || '') // Sanitizar el mensaje
-  if(!validator.isEmail(email) || validator.isEmpty(nombre)) {
-    return redirect('/404',307)
-  }else{
+  if (!validator.isEmail(email) || validator.isEmpty(nombre)) {
+    return redirect('/404', 307)
+  } else {
     const client = new MongoClient(uri)
     console.log('Cliente base de datos')
     const doc = {
@@ -60,6 +62,6 @@ export const POST: APIRoute = async ({ request, redirect }) => {
       }
     }
     run().catch(console.dir)
-    return redirect(link,307)
+    return redirect(link, 307)
   }
 }
